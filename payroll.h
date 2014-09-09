@@ -1,25 +1,27 @@
 #include <iostream>
+#include <string>
+
+using namespace std;
 
 class Employee {
-    char name[];
-    char benefitDescription[];
+    private:
+    string name;
+    string benefitDescription;
     double tax;
     double grossIncome;
   public:
-    //todo: make prototypes for these functions; these are simply placeholders for now.
-    //also change the set into private funcs
-    void setName();
+    void setName(string);
     void getName();
-    void getBenefits();
+    void getBenefits(string);
     void setBenefits();
     void setTaxes(double);
     void getTaxes();
-    void setGrossIncome();
+    void setGrossIncome(double);
     void getGrossIncome();
     //function for alg change goes here
     //function for alg change goes here
 };
 
-void Employee::setName (char newName[]) {
+/*void Employee::setName (char newName[]) {
   name = newName;
-  }
+  }*/
