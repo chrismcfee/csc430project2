@@ -9,6 +9,7 @@ class Employee {
     string benefitDescription;
     double tax;
     double grossIncome;
+    double netpay;
   public:
     void setName(string);
     void getName();
@@ -18,8 +19,11 @@ class Employee {
     void getTaxes();
     void setGrossIncome(double);
     void getGrossIncome();
+    void getNetPay();
+    //...
     //function for alg change goes here
     //function for alg change goes here
+    //readin function
 };
 
 /*void Employee::setName (char newName[]) {
