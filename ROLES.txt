@@ -1,0 +1,17 @@
+The roles are as follows:
+
+Me: Project Leader, class prototype (functions and variables), main function, and the last requirement (generating a text file to display that the worker has had a direct deposit or check given to them)
+Dan: names functions (setter and getter) Dan will also be in charge of writing all our documentation and description.
+Mike: benefits functions (setter and getter)
+Tuan: tax functions (setter and getter)
+Stan: gross income functions (setter and getter)
+
+After that, we will work on the algorithm changer function as a team and once that's done you will all do individual unit testing with your functions. I will do integration testing myself once that is complete.
+
+Then after that, I want to work on a pseudo-database. This will just be a text file though with payroll information. The formatting will be announced after the other tasks are complete since I'm still trying to think of how to format it exactly. I will assign one of you with this task when I've decided on it.
+
+If you have any questions, let me know. I will hopefully be able to finish the class prototype soon so you can start working on your tasks. I hope to have everything finished by tomorrow night. I know that this shouldn't be a problem for anyone. This is a relatively simple assignment after all.
+
+These roles are not written in stone. Feel free to work together on certain parts. If I need help with anything, I will let someone know too.
+
+This text file will be updated should the roles change at all...
