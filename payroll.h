@@ -42,14 +42,34 @@ class Employee {
         //so now we can use it like an int or string (cin, fstream...)
     }
     
-    //comparation function (for checking and extend function)
+    //equal function (for extend function)
     void operator = (Employee& source)
     {
         name = source.getName();
         benefitDescription = source.getBenefits();
-        tax = source.getTaxes;
+        tax = source.getTaxes();
         grossIncome = source.getGrossIncome();
         netpay = source.getNetPay();
+    }
+    
+    //compare fucntion (for checking function)
+    bool operator == (Employee& source)
+    {
+        /*
+        if(id.compare(source.getid()) !=0 )
+          return 0;
+        */
+        if(name.compare(source.getName()) !=0 )
+          return 0;
+        if(benefitDescription.compare(source.getBenefits()) != 0)
+          return 0;
+        if(tax != source.getTaxes())
+          return 0;
+        if(grossIncome != source.getGrossIncome())
+          return 0;
+        if(netpay != source.getNetPay())
+          return 0;
+          return 1;
     }
     
     //[IMPORTANT] those two functions cannot be written outsite
