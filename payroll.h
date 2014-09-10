@@ -5,16 +5,16 @@ using namespace std;
 
 class Employee {
   private:
-  //should have ID (for not douplicate data)
-  //string id;
+    //ID (to prevent duplicate data)
+    string id;
     string name;
     string benefitDescription;
     double tax;
     double grossIncome;
     double netpay;
   public:
-    //void setid(string index);
-    //string getid();
+    void setid(string index);
+    string getid();
     void setName(string);
     void getName();
     void getBenefits(string);
@@ -24,7 +24,6 @@ class Employee {
     void setGrossIncome(double);
     void getGrossIncome();
     void getNetPay();
-    //...
     //function for alg change goes here
     //function for alg change goes here
     
