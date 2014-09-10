@@ -72,7 +72,7 @@ class Employee {
           return 1;
     }
     
-    //[IMPORTANT] those two functions cannot be written outsite
+    //[IMPORTANT] those 3 functions cannot be written outsite
     // !!!I have not tested the code
 };
 
