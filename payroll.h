@@ -42,7 +42,7 @@ class Employee {
         //so now we can use it like an int or string (cin, fstream...)
     }
     
-    //comparation function (for extend process)
+    //comparation function (for checking and extend function)
     void operator = (Employee& source)
     {
         name = source.getName();
