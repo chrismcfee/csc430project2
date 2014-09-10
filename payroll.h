@@ -53,6 +53,7 @@ class Employee {
     }
     
     //[IMPORTANT] those two functions cannot be written outsite
+    // !!!I have not tested the code
 };
 
 void Employee::setTaxes(double value)
