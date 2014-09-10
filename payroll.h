@@ -77,4 +77,4 @@ and if you guys also want the numberic checker I can also do that :">  */
   }*/
   
   //for this one: the array should be in an other header file with a separated class for ezier entering or modifying]
-  //I also posted 3 files in dynamic folder as an example for dynamic array and the seperated class
+  //I also sent you guys 3 files in dynamic folder as an example for dynamic array and the seperated class
