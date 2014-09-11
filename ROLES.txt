@@ -1,10 +1,10 @@
 The roles are as follows:
 
 Me: Project Leader, class prototype (functions and variables), main function, and the last requirement (generating a text file to display that the worker has had a direct deposit or check given to them)
-Dan: names functions (setter and getter) Dan will also be in charge of writing all our documentation and description.
-Mike: benefits functions (setter and getter)
-Tuan: tax functions (setter and getter)
-Stan: gross income functions (setter and getter)
+Dan: names/ID functions (setter and getter), function to detect employee duplicate, writing all our documentation and description.
+Mike: benefits functions (setter and getter), additional tasks TBA
+Tuan: tax functions (setter and getter), read in function, create text file and ability to read in lines from the text file into a new class, as well as writing new classes to a text file
+Stan: gross income functions (setter and getter), additional tasks TBA
 
 After that, we will work on the algorithm changer function as a team and once that's done you will all do individual unit testing with your functions. I will do integration testing myself once that is complete.
 
