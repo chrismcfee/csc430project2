@@ -8,6 +8,7 @@ class Employee {
     //ID (to prevent duplicate data)
     string id;
     string name;
+    bool hasBenefits;
     string benefitDescription;
     double tax;
     double grossIncome;
