@@ -98,3 +98,29 @@ and if you guys also want the numberic checker I can also do that :">  */
   
   //for this one: the array should be in an other header file with a separated class for ezier entering or modifying]
   //I also sent you guys 3 files in dynamic folder as an example for dynamic array and the seperated class
+  //
+/*
+//unit tested
+//tested and functional
+#include <iostream>
+using namespace std;
+class income
+{       
+private:
+int grossincome;
+public:
+void setgross(int g){
+grossincome=g;
+}
+int getgross(){
+return grossincome;
+}
+};
+int main()
+{
+income exp1;
+exp1.setgross(80000);
+cout << exp1.getgross()<< endl; 
+return 0;
+}
+*/
