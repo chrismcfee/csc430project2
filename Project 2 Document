@@ -1,0 +1,49 @@
+Project 2: Payroll
+Requirements: 
+-Create a class-based program that will allow the user to store data to a file
+-Allow Employee information to be added, manipulated, or deleted
+ 	-information such as benefits, tax deduction, and gross income
+-output information onto a text file
+-C#
+Team Members: Chris Mcfee, Daniel Mallon, Stanislav Leskov, Tuan Nguyen, Michael Tighe
+Questions Asked:
+- Will we need to request the user to choose a specific employee before calling the other functions? (benefits, tax deduction, gross income)
+-What sort of benefits will we use in the program?
+-How will we distribute the roles?
+-How will the output file look?
+-What will we ask for employee information?
+-How will we store the data?
+-Will we use a GUI?
+Team Roles:
+Chris Mcfee: (Team Leader): creates class prototype (functions and variables), main function, and the last requirement (generating a text file to display that the worker has had a direct deposit or check given to them). Integration and unit testing.
+
+Daniel Mallon: creates the names “employee” functions (setter and getter), writing up all the documentation and description. Unit testing.
+Stanislav Leskov: creates the gross income function/s. Helped make the GUI more robust. Unit testing.
+Michael Tighe: creates the benefits function/s. Created the comments for code. Unit Testing
+Tuan Nguyen: created the dynamic array, checked for errors. Made the header file for the program. Integration and unit testing.
+
+Complications/Unit Testing: 
+-Switched from C++ to C# during the middle of writing the code
+-
+User Guide:
+Lessons Learned:
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ETA: 2 days
+ATA:
