@@ -92,12 +92,12 @@
             // 
             this.comboBox1.FormattingEnabled = true;
             this.comboBox1.Items.AddRange(new object[] {
-            "Last Name",
-            "First Name",
-            "Middle Name",
-            "Telephone",
-            "Floor",
-            "Birth Month"});
+            "ID",
+            "Name",
+            "Benefits?",
+            "Benefit Type",
+            "Taxes",
+            "GrossPay"});
             this.comboBox1.Location = new System.Drawing.Point(248, 46);
             this.comboBox1.Name = "comboBox1";
             this.comboBox1.Size = new System.Drawing.Size(121, 21);
