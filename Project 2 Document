@@ -15,7 +15,7 @@ Questions Asked:
 -How will we store the data?
 -Will we use a GUI?
 Team Roles:
-Chris Mcfee: (Team Leader): creates class prototype (functions and variables), main function, and the last requirement (generating a text file to display that the worker has had a direct deposit or check given to them). Integration and unit testing.
+Chris McFee: (Team Leader): creates class prototype (functions and variables), main function, and the last requirement (generating a text file to display that the worker has had a direct deposit or check given to them). Integration and unit testing.
 
 Daniel Mallon: creates the names “employee” functions (setter and getter), writing up all the documentation and description. Unit testing.
 Stanislav Leskov: creates the gross income function/s. Helped make the GUI more robust. Unit testing.
