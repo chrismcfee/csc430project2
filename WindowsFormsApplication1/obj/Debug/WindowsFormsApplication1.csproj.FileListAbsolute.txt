@@ -1,0 +1,16 @@
+C:\Users\CharleneX\Dropbox\Quang\WindowsFormsApplication1\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.csprojResolveAssemblyReference.cache
+C:\Users\CharleneX\Dropbox\Quang\WindowsFormsApplication1\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.Properties.Resources.resources
+C:\Users\CharleneX\Dropbox\Quang\WindowsFormsApplication1\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.csproj.GenerateResource.Cache
+C:\Users\CharleneX\Dropbox\Quang\WindowsFormsApplication1\WindowsFormsApplication1\bin\Debug\WindowsFormsApplication1.exe
+C:\Users\CharleneX\Dropbox\Quang\WindowsFormsApplication1\WindowsFormsApplication1\bin\Debug\WindowsFormsApplication1.pdb
+C:\Users\CharleneX\Dropbox\Quang\WindowsFormsApplication1\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.Form1.resources
+C:\Users\CharleneX\Dropbox\Quang\WindowsFormsApplication1\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.exe
+C:\Users\CharleneX\Dropbox\Quang\WindowsFormsApplication1\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.pdb
+C:\Users\CharleneX\Dropbox\Quang\Lab7-TuanNguyen\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.exe
+C:\Users\CharleneX\Dropbox\Quang\Lab7-TuanNguyen\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.pdb
+C:\Users\CharleneX\Dropbox\Quang\Lab7-TuanNguyen\WindowsFormsApplication1\bin\Debug\WindowsFormsApplication1.exe
+C:\Users\CharleneX\Dropbox\Quang\Lab7-TuanNguyen\WindowsFormsApplication1\bin\Debug\WindowsFormsApplication1.pdb
+C:\Users\CharleneX\Dropbox\Quang\Lab7-TuanNguyen\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.csprojResolveAssemblyReference.cache
+C:\Users\CharleneX\Dropbox\Quang\Lab7-TuanNguyen\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.Form1.resources
+C:\Users\CharleneX\Dropbox\Quang\Lab7-TuanNguyen\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.Properties.Resources.resources
+C:\Users\CharleneX\Dropbox\Quang\Lab7-TuanNguyen\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.csproj.GenerateResource.Cache
