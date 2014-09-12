@@ -31,7 +31,7 @@ namespace WindowsFormsApplication1
         {
             this.FormBorderStyle = FormBorderStyle.FixedSingle;
             data = new people();
-            MessageBox.Show("Please use my data file", "INFO");
+            MessageBox.Show("Please open a database (text file)", "INFO");
             DialogResult result;
             using (OpenFileDialog fileChooser = new OpenFileDialog())
             {
