@@ -160,8 +160,8 @@ namespace WindowsFormsApplication1
             if (Convert.ToString(textBox5.Text) != "")
             {
                 string stemp;
-                int temp;
-                if (!int.TryParse(textBox5.Text, out temp))
+                float temp;
+                if (!float.TryParse(textBox5.Text, out temp))
                 {
                     stemp = textBox5.Text;
                     stemp = stemp.Substring(0,stemp.Length - 1);
@@ -177,8 +177,8 @@ namespace WindowsFormsApplication1
             if (Convert.ToString(textBox6.Text) != "")
             {
                 string stemp;
-                int temp;
-                if (!int.TryParse(textBox6.Text, out temp))
+                float temp;
+                if (!float.TryParse(textBox6.Text, out temp))
                 {
                     stemp = textBox6.Text;
                     stemp = stemp.Substring(0, stemp.Length - 1);
@@ -194,8 +194,8 @@ namespace WindowsFormsApplication1
             if (Convert.ToString(textBox7.Text) != "")
             {
                 string stemp;
-                int temp;
-                if (!int.TryParse(textBox7.Text, out temp))
+                float temp;
+                if (!float.TryParse(textBox7.Text, out temp))
                 {
                     stemp = textBox7.Text;
                     stemp = stemp.Substring(0, stemp.Length - 1);
@@ -211,8 +211,8 @@ namespace WindowsFormsApplication1
             if (Convert.ToString(textBox8.Text) != "")
             {
                 string stemp;
-                int temp;
-                if (!int.TryParse(textBox8.Text, out temp))
+                float temp;
+                if (!float.TryParse(textBox8.Text, out temp))
                 {
                     stemp = textBox8.Text;
                     stemp = stemp.Substring(0, stemp.Length - 1);
@@ -223,9 +223,9 @@ namespace WindowsFormsApplication1
             }
         }
 
-        private void textBox9_TextChanged(object sender, EventArgs e)
+        /*private void textBox9_TextChanged(object sender, EventArgs e)s
         {
-            /*if (Convert.ToString(textBox9.Text) != "")
+            if (Convert.ToString(textBox9.Text) != "")
             {
                 string stemp;
                 int temp;
@@ -237,8 +237,8 @@ namespace WindowsFormsApplication1
                     toolTip1.Show("Please enter a number.", textBox9, 110, 10);
                     textBox9.SelectionStart = textBox9.Text.Length;
                 }
-            }*/
-        }
+            }
+        }*/
 
         private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
@@ -266,6 +266,11 @@ namespace WindowsFormsApplication1
         }
 
         private void label5_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void textBox8_TextChanged_1(object sender, EventArgs e)
         {
 
         }
