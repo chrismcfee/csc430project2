@@ -64,7 +64,7 @@ namespace WindowsFormsApplication1
 
         private void button1_Click(object sender, EventArgs e)
         {
-            if (textBox2.Text == "" && textBox3.Text == "" && textBox4.Text == "" && textBox5.Text == "" && textBox6.Text == "" && textBox7.Text == "" && textBox8.Text == "" && textBox9.Text == "")
+            if (textBox2.Text == "" && textBox3.Text == "" && textBox4.Text == "" && textBox5.Text == "" && textBox6.Text == "" && textBox7.Text == "" && textBox8.Text == "")
                 toolTip1.Show("Please enter information first.", button1, 110, 40);
             else
             {
@@ -83,7 +83,7 @@ namespace WindowsFormsApplication1
                 temp[4] = textBox6.Text;
                 temp[5] = textBox7.Text;
                 temp[6] = textBox8.Text;
-                temp[7] = textBox9.Text;
+                //temp[7] = textBox9.Text;
                 if (textBox5.Text == "")
                     temp[3] = "NA";
                 if (textBox6.Text == "")
@@ -92,8 +92,8 @@ namespace WindowsFormsApplication1
                     temp[5] = "NA";
                 if (textBox8.Text == "")
                     temp[6] = "NA";
-                if (textBox9.Text == "")
-                    temp[7] = "NA";
+                //if (textBox9.Text == "")
+                  //  temp[7] = "NA";
                 data.input(temp);
 
                 line = temp[0] + "\t" + temp[1] + "\t" + temp[2] + "\t" + temp[3] + "\t" + temp[4] + "\t" + temp[5] + "\t" + temp[6] + "\t" + temp[7];
@@ -106,7 +106,7 @@ namespace WindowsFormsApplication1
                 textBox6.Text = "";
                 textBox7.Text = "";
                 textBox8.Text = "";
-                textBox9.Text = "";
+                //textBox9.Text = "";
             }
         }
 
@@ -129,11 +129,11 @@ namespace WindowsFormsApplication1
         {
             textBox1.MaxLength = 15;
             schoice = 6;
-            if (comboBox1.Text == "First Name")
+            if (comboBox1.Text == "ID")
                 schoice = 1;
-            if (comboBox1.Text == "Last Name")
+            if (comboBox1.Text == "Name")
                 schoice = 0;
-            if (comboBox1.Text == "Middle Name")
+            if (comboBox1.Text == "Benfits")
                 schoice = 2;
             if (comboBox1.Text == "Telephone")
                 schoice = 3;
@@ -225,7 +225,7 @@ namespace WindowsFormsApplication1
 
         private void textBox9_TextChanged(object sender, EventArgs e)
         {
-            if (Convert.ToString(textBox9.Text) != "")
+            /*if (Convert.ToString(textBox9.Text) != "")
             {
                 string stemp;
                 int temp;
@@ -237,7 +237,7 @@ namespace WindowsFormsApplication1
                     toolTip1.Show("Please enter a number.", textBox9, 110, 10);
                     textBox9.SelectionStart = textBox9.Text.Length;
                 }
-            }
+            }*/
         }
 
         private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
@@ -258,6 +258,16 @@ namespace WindowsFormsApplication1
         private void textBox1_MouseLeave(object sender, EventArgs e)
         {
             toolTip1.RemoveAll();
+        }
+
+        private void label3_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label5_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
