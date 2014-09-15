@@ -135,14 +135,14 @@ namespace WindowsFormsApplication1
                 schoice = 0;
             if (comboBox1.Text == "Benfits")
                 schoice = 2;
-            if (comboBox1.Text == "Telephone")
+            if (comboBox1.Text == "Taxes")
                 schoice = 3;
-            if (comboBox1.Text == "Floor")
+            if (comboBox1.Text == "Gross Income")
             {
                 schoice = 4;
                 textBox1.MaxLength = 1;
             }
-            if (comboBox1.Text == "Birth Month")
+            if (comboBox1.Text == "Net Pay")
             {
                 schoice = 5;
                 textBox1.MaxLength = 2;
@@ -222,23 +222,6 @@ namespace WindowsFormsApplication1
                 }
             }
         }
-
-        /*private void textBox9_TextChanged(object sender, EventArgs e)s
-        {
-            if (Convert.ToString(textBox9.Text) != "")
-            {
-                string stemp;
-                int temp;
-                if (!int.TryParse(textBox9.Text, out temp))
-                {
-                    stemp = textBox9.Text;
-                    stemp = stemp.Substring(0, stemp.Length - 1);
-                    textBox9.Text = stemp;
-                    toolTip1.Show("Please enter a number.", textBox9, 110, 10);
-                    textBox9.SelectionStart = textBox9.Text.Length;
-                }
-            }
-        }*/
 
         private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
