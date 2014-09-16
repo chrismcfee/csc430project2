@@ -11,7 +11,6 @@ using System.IO;
 namespace WindowsFormsApplication1
 {
     //using pinfo;
-    using cdata;
     using pinfo;
     using linkedlist;
 
@@ -54,6 +53,7 @@ namespace WindowsFormsApplication1
                     }
                     richTextBox1.Text = data.display();
                     linkLabel1.Text = fileName;
+                    textBox7.Text = idgen();
                     input.Close();
                 }
                 catch (IOException)
@@ -66,7 +66,7 @@ namespace WindowsFormsApplication1
 
         private void button1_Click(object sender, EventArgs e)
         {
-            if (textBox2.Text == "" && textBox3.Text == "" && textBox4.Text == "" && textBox5.Text == "" && textBox6.Text == "" && textBox7.Text == "" && textBox8.Text == "" && textBox9.Text == "")
+            if (textBox2.Text == "" && textBox3.Text == "" && textBox4.Text == "" && textBox5.Text == "" && textBox6.Text == "")
                 toolTip1.Show("Please enter information first.", button1, 110, 40);
             else
             {
@@ -78,27 +78,17 @@ namespace WindowsFormsApplication1
                     textBox3.Text = "NA";
                 if (textBox4.Text == "")
                     textBox4.Text = "NA";
-                temp[0] = textBox2.Text.ToUpper();
-                temp[1] = textBox3.Text.ToUpper();
-                temp[2] = textBox4.Text.ToUpper();
-                temp[3] = textBox5.Text;
-                temp[4] = textBox6.Text;
-                temp[5] = textBox7.Text;
-                temp[6] = textBox8.Text;
-                temp[7] = textBox9.Text;
+                temp[0] = idgen();
+                temp[1] = textBox2.Text.ToUpper();
+                temp[2] = textBox3.Text.ToUpper();
+                temp[3] = textBox4.Text;
                 if (textBox5.Text == "")
-                    temp[3] = "NA";
+                    temp[4] = "00";
                 if (textBox6.Text == "")
-                    temp[4] = "NA";
-                if (textBox7.Text == "")
-                    temp[5] = "NA";
-                if (textBox8.Text == "")
-                    temp[6] = "NA";
-                if (textBox9.Text == "")
-                    temp[7] = "NA";
+                    temp[5] = "00";
                 data.input(temp);
 
-                line = temp[0] + "\t" + temp[1] + "\t" + temp[2] + "\t" + temp[3] + "\t" + temp[4] + "\t" + temp[5] + "\t" + temp[6] + "\t" + temp[7];
+                line = temp[1] + "\t" + temp[2] + "\t" + temp[3] + "\t" + temp[4];// +"\t" + temp[5] + "\t" + temp[6] + "\t" + temp[7];
                 File.AppendAllText(fileName, Environment.NewLine + line);
                 searchtb1();
                 textBox2.Text = "";
@@ -106,9 +96,9 @@ namespace WindowsFormsApplication1
                 textBox4.Text = "";
                 textBox5.Text = "";
                 textBox6.Text = "";
-                textBox7.Text = "";
+                /*textBox7.Text = "";
                 textBox8.Text = "";
-                textBox9.Text = "";
+                textBox9.Text = "";*/
             }
         }
 
@@ -122,6 +112,23 @@ namespace WindowsFormsApplication1
             }
         }
 
+        string idgen()
+        {
+            string index = "0000000000";
+            int noe = data.getlastid(), count = 0;
+            while(noe > 1)
+            {
+                noe = noe / 10;
+                count++;
+            }
+
+            index = index.Substring(0, index.Length - count);
+            count = data.getlastid();
+            count++;
+            index = index + count.ToString();
+            return index;
+        }
+
         private void textBox1_TextChanged(object sender, EventArgs e)
         {
             searchtb1();
@@ -130,25 +137,21 @@ namespace WindowsFormsApplication1
         private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
             textBox1.MaxLength = 15;
-            schoice = 6;
-            if (comboBox1.Text == "First Name")
-                schoice = 1;
+            schoice = 7;
             if (comboBox1.Text == "Last Name")
                 schoice = 0;
-            if (comboBox1.Text == "Middle Name")
+            if (comboBox1.Text == "First Name")
+                schoice = 1;
+            if (comboBox1.Text == "Benefit")
                 schoice = 2;
-            if (comboBox1.Text == "Telephone")
+            if (comboBox1.Text == "Tax")
                 schoice = 3;
-            if (comboBox1.Text == "Floor")
-            {
+            if (comboBox1.Text == "Gross Income")
                 schoice = 4;
-                textBox1.MaxLength = 1;
-            }
-            if (comboBox1.Text == "Birth Month")
-            {
+            if (comboBox1.Text == "Net Pay")
                 schoice = 5;
-                textBox1.MaxLength = 2;
-            }
+            if (comboBox1.Text == "ID")
+                schoice = 6;
             searchtb1();
         }
 
@@ -190,7 +193,7 @@ namespace WindowsFormsApplication1
                 }
             }
         }
-
+        /*
         private void textBox7_TextChanged(object sender, EventArgs e)
         {
             if (Convert.ToString(textBox7.Text) != "")
@@ -207,7 +210,7 @@ namespace WindowsFormsApplication1
                 }
             }
         }
-
+        
         private void textBox8_TextChanged(object sender, EventArgs e)
         {
             if (Convert.ToString(textBox8.Text) != "")
@@ -240,7 +243,7 @@ namespace WindowsFormsApplication1
                     textBox9.SelectionStart = textBox9.Text.Length;
                 }
             }
-        }
+        }*/
 
         private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
@@ -308,6 +311,14 @@ namespace linkedlist
             
         }
 
+        public int getlastid()
+        {
+            return findnode(noe).data.getid();
+        }
+
+        public int getnoe()
+        { return noe; }
+
         public string display()
         {
             string temp = "";
@@ -351,46 +362,69 @@ namespace linkedlist
         {
             pnode temp;
             temp = findnode(pos);
-            findnode(pos-1).next = temp.next;
-            
+            findnode(pos-1).next = temp.next;  
         }
 
         public string search(string word, int choice)
         {
             string temp = "";
+            return temp;
             pnode tempnode = head;
             if (isEmpty())
                 return "The list contains NOTHING!";
-            if (choice <= 3)
+            switch (choice)
             {
-                for (int i = 0; i < noe; i++)
-                {
-                    if (tempnode.data.info[choice].Contains(word))
-                        temp = temp + tempnode.data.getInfo() + "\n";
-                    tempnode = tempnode.next;
-                }
-            }
-            else
-                if (choice == 4)
-                {
+                case 0:
                     for (int i = 0; i < noe; i++)
                     {
-                        if (tempnode.data.info[choice][0] == word[0])
+                        if (tempnode.data.lastname.Contains(word))
                             temp = temp + tempnode.data.getInfo() + "\n";
                         tempnode = tempnode.next;
                     }
-                }
-                else
-                    if (choice == 5)
+                case 1:
+                    for (int i = 0; i < noe; i++)
                     {
-                        for (int i = 0; i < noe; i++)
-                        {
-                            if (tempnode.data.date.m == word)
-                                temp = temp + tempnode.data.getInfo() + "\n";
-                        }
+                        if (tempnode.data.firstname.Contains(word))
+                            temp = temp + tempnode.data.getInfo() + "\n";
+                        tempnode = tempnode.next;
                     }
-                    else
-                        return "!Please select a search method.";
+                case 2:
+                    for (int i = 0; i < noe; i++)
+                    {
+                        if (tempnode.data.benefit.Contains(word))
+                            temp = temp + tempnode.data.getInfo() + "\n";
+                        tempnode = tempnode.next;
+                    }
+                case 3:
+                    for (int i = 0; i < noe; i++)
+                    {
+                        if (tempnode.data.tax == Convert.ToDouble(word))
+                            temp = temp + tempnode.data.getInfo() + "\n";
+                        tempnode = tempnode.next;
+                    }
+                case 4:
+                    for (int i = 0; i < noe; i++)
+                    {
+                        if (tempnode.data.gincome == Convert.ToDouble(word))
+                            temp = temp + tempnode.data.getInfo() + "\n";
+                        tempnode = tempnode.next;
+                    }
+                case 5:
+                    for (int i = 0; i < noe; i++)
+                    {
+                        if (tempnode.data.npay == Convert.ToDouble(word))
+                            temp = temp + tempnode.data.getInfo() + "\n";
+                        tempnode = tempnode.next;
+                    }
+                case 6:
+                    for (int i = 0; i < noe; i++)
+                    {
+                        if (tempnode.data.id.Contains(word))
+                            temp = temp + tempnode.data.getInfo() + "\n";
+                        tempnode = tempnode.next;
+                    }
+                default: temp = "";
+            }
             if (temp == "")
                 temp = "!No result for your search.";
             return temp;
@@ -399,112 +433,30 @@ namespace linkedlist
     }
 }
 
-
-namespace cdata
-{
-    using pinfo;
-    public class people
-    {
-        public person[] infos = new person[100];
-        public int noe = 0;
-        public bool isFull() { return (noe == 100); }
-        public string display()
-        {
-            string temp = "";
-            for (int i = 0; i < noe; i++)
-                temp = temp + infos[i].getInfo() + "\n";
-            return temp;
-            
-        }
-
-        public void input(string[] info)
-        {
-            if (isFull())
-            {
-                MessageBox.Show("!The data is full");
-                return;
-            }
-            infos[noe] = new person();
-            for (int i = 0; i <= 4; i++)
-                infos[noe].info[i] = info[i];
-            infos[noe].date.m = info[5];
-            infos[noe].date.d = info[6];
-            infos[noe].date.y = info[7];
-            noe++;
-        }
-
-        public string search(string word, int choice)
-        {
-            string temp = "";
-            if (choice <= 3)
-            {
-                for (int i = 0; i < noe; i++)
-                {
-                    if (infos[i].info[choice].Contains(word))
-                        temp = temp + infos[i].getInfo() + "\n";
-                }
-            }
-            else
-                if (choice == 4)
-                {
-                    for (int i = 0; i < noe; i++)
-                    {
-                        if (infos[i].info[choice][0] == word[0])
-                            temp = temp + infos[i].getInfo() + "\n";
-                    }
-                }
-                else
-                    if (choice == 5)
-                    {
-                        for (int i = 0; i < noe; i++)
-                        {
-                            if (infos[i].date.m == word)
-                                temp = temp + infos[i].getInfo() + "\n";
-                        }
-                    }
-                    else
-                        return "!Please select a search method.";
-            if (temp == "")
-                temp = "!No result for your search.";
-            return temp;
-        }
-    }
-
-}
-
 namespace pinfo
 {
     public class person
     {
-        public class cdate
-        {
-            public string m;
-            public string d;
-            public string y;
-            public string printdate()
-            {
-                string tempm = m, tempd = d;
-                if (m.Length < 2)
-                    tempm = "0" + m;
-                if (d.Length < 2)
-                    tempd = "0" + d;
-               return (tempm + "/" + tempd + "/" + y);
-            }
-        }
-        public cdate date = new cdate();
         //private static date dob = new date();
-        public string[] info = new string[5];
+        public string id = "",lastname = "",firstname = "", benefit = "";
+        public double tax, gincome, npay;
         public void input(string[] source)
         {
-            for (int i = 0; i <= 4; i++)
-                info[i] = source[i];
-            date.m = source[5];
-            date.d = source[6];
-            date.y = source[7];
+            id = source[0];
+            lastname = source[1];
+            firstname = source[2];
+            benefit = source[3];
+            tax = Convert.ToDouble(source[4]);
+            gincome = Convert.ToDouble(source[5]);
+            npay = gincome - tax;
+        }
+        public int getid()
+        {
+            return Convert.ToInt32(id);
         }
         public string getInfo()
         {
-            return (String.Format("{0,17:D}{1,13:D}{2,6:D}{3,15:D}{4,9:D}{5,15:D}", info[0], info[1], info[2], info[3], info[4], date.printdate()));
+            return (String.Format("{0,17:D}{1,13:D}{2,6:D}{3,15:D}{4,9:D}{5,15:D}", id, lastname, firstname, benefit, tax.ToString(), gincome.ToString()));
         }
     }
 }
