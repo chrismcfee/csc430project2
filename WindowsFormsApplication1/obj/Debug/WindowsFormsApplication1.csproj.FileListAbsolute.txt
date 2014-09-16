@@ -22,3 +22,11 @@ C:\Users\CharleneX\Dropbox\lab\Lab7-TuanNguyen\WindowsFormsApplication1\obj\Debu
 C:\Users\CharleneX\Dropbox\lab\Lab7-TuanNguyen\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.csproj.GenerateResource.Cache
 C:\Users\CharleneX\Dropbox\lab\Lab7-TuanNguyen\WindowsFormsApplication1\bin\Debug\WindowsFormsApplication1.exe
 C:\Users\CharleneX\Dropbox\lab\Lab7-TuanNguyen\WindowsFormsApplication1\bin\Debug\WindowsFormsApplication1.pdb
+C:\Users\Christopher\Documents\Visual Studio 2013\Projects\csc430project2\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.exe
+C:\Users\Christopher\Documents\Visual Studio 2013\Projects\csc430project2\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.pdb
+C:\Users\Christopher\Documents\Visual Studio 2013\Projects\csc430project2\WindowsFormsApplication1\bin\Debug\WindowsFormsApplication1.exe
+C:\Users\Christopher\Documents\Visual Studio 2013\Projects\csc430project2\WindowsFormsApplication1\bin\Debug\WindowsFormsApplication1.pdb
+C:\Users\Christopher\Documents\Visual Studio 2013\Projects\csc430project2\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.csprojResolveAssemblyReference.cache
+C:\Users\Christopher\Documents\Visual Studio 2013\Projects\csc430project2\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.Form1.resources
+C:\Users\Christopher\Documents\Visual Studio 2013\Projects\csc430project2\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.Properties.Resources.resources
+C:\Users\Christopher\Documents\Visual Studio 2013\Projects\csc430project2\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.csproj.GenerateResource.Cache

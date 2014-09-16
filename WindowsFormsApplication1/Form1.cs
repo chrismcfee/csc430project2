@@ -31,7 +31,7 @@ namespace WindowsFormsApplication1
         {
             this.FormBorderStyle = FormBorderStyle.FixedSingle;
             data = new plist();
-            MessageBox.Show("Please use my data file", "INFO");
+            MessageBox.Show("Please select the file where the databse is stored.", "ATTENTION");
             DialogResult result;
             using (OpenFileDialog fileChooser = new OpenFileDialog())
             {
@@ -67,7 +67,7 @@ namespace WindowsFormsApplication1
         private void button1_Click(object sender, EventArgs e)
         {
             if (textBox2.Text == "" && textBox3.Text == "" && textBox4.Text == "" && textBox5.Text == "" && textBox6.Text == "")
-                toolTip1.Show("Please enter information first.", button1, 110, 40);
+                toolTip1.Show("Please enter information.", button1, 110, 40);
             else
             {
                 string[] temp = new string[8];
@@ -348,7 +348,7 @@ namespace linkedlist
                     {
                         if (i >= noe)
                         {
-                            MessageBox.Show("Returned the last posistion", "The position is larger than the size");
+                            MessageBox.Show("Returned the last position", "The position is larger than the size");
                             break;
                         }
                         temp = temp.next;
