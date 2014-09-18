@@ -14,7 +14,6 @@ namespace WindowsFormsApplication1
     using pinfo;
     using linkedlist;
 
-
     public partial class Form1 : Form
     {
         private FileStream input;
@@ -22,6 +21,7 @@ namespace WindowsFormsApplication1
         string fileName;
         private plist data;
         int schoice = 6;
+        pnode ntemp;
         public Form1()
         {
             InitializeComponent();
@@ -31,7 +31,7 @@ namespace WindowsFormsApplication1
         {
             this.FormBorderStyle = FormBorderStyle.FixedSingle;
             data = new plist();
-            MessageBox.Show("Please select the file where the databse is stored.", "ATTENTION");
+            MessageBox.Show("Please open the database file to begin editing.", "ATTENTION");
             DialogResult result;
             using (OpenFileDialog fileChooser = new OpenFileDialog())
             {
@@ -67,7 +67,7 @@ namespace WindowsFormsApplication1
         private void button1_Click(object sender, EventArgs e)
         {
             if (textBox2.Text == "" && textBox3.Text == "" && textBox4.Text == "" && textBox5.Text == "" && textBox6.Text == "")
-                toolTip1.Show("Please enter information.", button1, 110, 40);
+                toolTip1.Show("Please enter information first.", button1, 110, 40);
             else
             {
                 string[] temp = new string[8];
@@ -81,24 +81,23 @@ namespace WindowsFormsApplication1
                 temp[0] = idgen();
                 temp[1] = textBox2.Text.ToUpper();
                 temp[2] = textBox3.Text.ToUpper();
-                temp[3] = textBox4.Text;
+                temp[3] = textBox4.Text.ToUpper();
+                temp[4] = textBox5.Text;
+                temp[5] = textBox6.Text;
                 if (textBox5.Text == "")
                     temp[4] = "00";
                 if (textBox6.Text == "")
                     temp[5] = "00";
                 data.input(temp);
 
-                line = temp[1] + "\t" + temp[2] + "\t" + temp[3] + "\t" + temp[4];// +"\t" + temp[5] + "\t" + temp[6] + "\t" + temp[7];
-                File.AppendAllText(fileName, Environment.NewLine + line);
+                line = temp[0] + "\t" +temp[1] + "\t" + temp[2] + "\t" + temp[3] + "\t" + temp[4] +"\t" + temp[5];
+                //File.AppendAllText(fileName, Environment.NewLine + line);
                 searchtb1();
                 textBox2.Text = "";
                 textBox3.Text = "";
                 textBox4.Text = "";
                 textBox5.Text = "";
                 textBox6.Text = "";
-                /*textBox7.Text = "";
-                textBox8.Text = "";
-                textBox9.Text = "";*/
             }
         }
 
@@ -108,7 +107,24 @@ namespace WindowsFormsApplication1
                 richTextBox1.Text = data.display();
             else
             {
-                richTextBox1.Text = data.search(textBox1.Text.ToUpper(), schoice);
+                string temp = "";
+                temp = data.search(textBox1.Text.ToUpper(), schoice);
+                richTextBox1.Text = temp;
+                modifycheck(temp.Split('\n').Length);
+            }
+        }
+
+        void modifycheck(int index)
+        {
+            if (index == 2)
+            {
+                modify.Enabled = true;
+                delete.Enabled = true;
+            }
+            else
+            {
+                modify.Enabled = false;
+                delete.Enabled = false;
             }
         }
 
@@ -265,6 +281,61 @@ namespace WindowsFormsApplication1
             toolTip1.RemoveAll();
         }
 
+        private void delete_Click(object sender, EventArgs e)
+        {
+            data.deletenode(data.searchnode(textBox1.Text.ToUpper(), schoice)+1);
+            textBox1.Text = "";
+            modify.Enabled = false;
+            delete.Enabled = false;
+        }
+
+        private void modify_Click(object sender, EventArgs e)
+        {
+            button1.Enabled = false;
+            save.Enabled = true;
+            cancel.Enabled = true;
+            modify.Enabled = false;
+            delete.Enabled = false;
+            ntemp = data.findnode(data.searchnode(textBox1.Text.ToUpper(), schoice));
+            textBox2.Text = ntemp.data.lastname;
+            textBox3.Text = ntemp.data.firstname;
+            textBox4.Text = ntemp.data.benefit;
+            textBox5.Text = ntemp.data.tax.ToString();
+            textBox6.Text = ntemp.data.gincome.ToString();
+        }
+
+        private void save_Click(object sender, EventArgs e)
+        {
+            button1.Enabled = true;
+            save.Enabled = false;
+            cancel.Enabled = false;
+            ntemp.data.lastname = textBox2.Text;
+            ntemp.data.firstname = textBox3.Text;
+            ntemp.data.benefit = textBox4.Text;
+            ntemp.data.tax = Convert.ToInt32(textBox5.Text);
+            ntemp.data.gincome = Convert.ToInt32(textBox6.Text);
+            textBox1.Text = "";
+        }
+
+        private void cancel_Click(object sender, EventArgs e)
+        {
+            button1.Enabled = true;
+            save.Enabled = false;
+            cancel.Enabled = false;
+            textBox1.Text = "";
+            searchtb1();
+        }
+
+        private void Form1_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            File.WriteAllText(fileName, data.output());
+        }
+
+        private void textBox4_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
 
     }
 }
@@ -334,7 +405,7 @@ namespace linkedlist
 
         }
 
-        private pnode findnode(int pos)
+        public pnode findnode(int pos)
         {
             pnode temp = head;
             if (isEmpty())
@@ -348,7 +419,7 @@ namespace linkedlist
                     {
                         if (i >= noe)
                         {
-                            MessageBox.Show("Returned the last position", "The position is larger than the size");
+                            MessageBox.Show("Returned the last posistion", "The position is larger than the size");
                             break;
                         }
                         temp = temp.next;
@@ -362,13 +433,82 @@ namespace linkedlist
         {
             pnode temp;
             temp = findnode(pos);
-            findnode(pos-1).next = temp.next;  
+            if (pos == noe)
+                findnode(pos - 1).next = null;
+            else
+                findnode(pos - 1).next = temp.next;
+            noe--;
+        }
+
+        public int searchnode(string word, int choice)
+        {
+            pnode tempnode = head;
+            int i = -1;
+            switch (choice)
+            {
+                case 0:
+                    for (i = 0; i < noe; i++)
+                    {
+                        if (tempnode.data.lastname.Contains(word))
+                            return i;
+                        tempnode = tempnode.next;
+                    }
+                    break;
+                case 1:
+                    for (i = 0; i < noe; i++)
+                    {
+                        if (tempnode.data.firstname.Contains(word))
+                            return i;
+                        tempnode = tempnode.next;
+                    }
+                    break;
+                case 2:
+                    for (i = 0; i < noe; i++)
+                    {
+                        if (tempnode.data.benefit.Contains(word))
+                            return i;
+                        tempnode = tempnode.next;
+                    }
+                    break;
+                case 3:
+                    for (i = 0; i < noe; i++)
+                    {
+                        if (tempnode.data.tax == Convert.ToDouble(word))
+                            return i;
+                        tempnode = tempnode.next;
+                    }
+                    break;
+                case 4:
+                    for (i = 0; i < noe; i++)
+                    {
+                        if (tempnode.data.gincome == Convert.ToDouble(word))
+                            return i;
+                        tempnode = tempnode.next;
+                    }
+                    break;
+                case 5:
+                    for (i = 0; i < noe; i++)
+                    {
+                        if (tempnode.data.npay == Convert.ToDouble(word))
+                            return i;
+                        tempnode = tempnode.next;
+                    }
+                    break;
+                case 6:
+                    for (i = 0; i < noe; i++)
+                    {
+                        if (tempnode.data.id.Contains(word))
+                            return i;
+                        tempnode = tempnode.next;
+                    }
+                    break;
+            }
+            return i;
         }
 
         public string search(string word, int choice)
         {
             string temp = "";
-            return temp;
             pnode tempnode = head;
             if (isEmpty())
                 return "The list contains NOTHING!";
@@ -381,6 +521,7 @@ namespace linkedlist
                             temp = temp + tempnode.data.getInfo() + "\n";
                         tempnode = tempnode.next;
                     }
+                    break;
                 case 1:
                     for (int i = 0; i < noe; i++)
                     {
@@ -388,6 +529,7 @@ namespace linkedlist
                             temp = temp + tempnode.data.getInfo() + "\n";
                         tempnode = tempnode.next;
                     }
+                    break;
                 case 2:
                     for (int i = 0; i < noe; i++)
                     {
@@ -395,6 +537,7 @@ namespace linkedlist
                             temp = temp + tempnode.data.getInfo() + "\n";
                         tempnode = tempnode.next;
                     }
+                    break;
                 case 3:
                     for (int i = 0; i < noe; i++)
                     {
@@ -402,6 +545,7 @@ namespace linkedlist
                             temp = temp + tempnode.data.getInfo() + "\n";
                         tempnode = tempnode.next;
                     }
+                    break;
                 case 4:
                     for (int i = 0; i < noe; i++)
                     {
@@ -409,6 +553,7 @@ namespace linkedlist
                             temp = temp + tempnode.data.getInfo() + "\n";
                         tempnode = tempnode.next;
                     }
+                    break;
                 case 5:
                     for (int i = 0; i < noe; i++)
                     {
@@ -416,6 +561,7 @@ namespace linkedlist
                             temp = temp + tempnode.data.getInfo() + "\n";
                         tempnode = tempnode.next;
                     }
+                    break;
                 case 6:
                     for (int i = 0; i < noe; i++)
                     {
@@ -423,10 +569,28 @@ namespace linkedlist
                             temp = temp + tempnode.data.getInfo() + "\n";
                         tempnode = tempnode.next;
                     }
-                default: temp = "";
+                    break;
+                //default: temp = "";
             }
             if (temp == "")
                 temp = "!No result for your search.";
+            return temp;
+        }
+
+        public string output()
+        {
+            string temp = "";
+            pnode tempnode = head;
+
+            for (int i = 0; i < noe; i++)
+            {
+                if (i == 0)
+                    temp = tempnode.data.output();
+                else
+                    temp = temp + Environment.NewLine + tempnode.data.output();
+                tempnode = tempnode.next;
+            }
+
             return temp;
         }
         
@@ -457,6 +621,11 @@ namespace pinfo
         public string getInfo()
         {
             return (String.Format("{0,17:D}{1,13:D}{2,6:D}{3,15:D}{4,9:D}{5,15:D}", id, lastname, firstname, benefit, tax.ToString(), gincome.ToString()));
+        }
+
+        public string output()
+        {
+            return id + "\t" + lastname + "\t" + firstname + "\t" + benefit + "\t" + tax.ToString() + "\t" + gincome.ToString();
         }
     }
 }
