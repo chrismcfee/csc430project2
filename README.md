@@ -6,8 +6,11 @@ A user-defined program to manage a payroll database
 Dependencies:
 
 Microsoft Windows
+
 Visual Studio 2013
+
 Latest version of .NET installed
+
 
 _______________________________________________________________________
 
