@@ -3,6 +3,12 @@ csc430project2
 
 A user-defined program to manage a payroll database
 
+Dependencies:
+
+Microsoft Windows
+Visual Studio 2013
+Latest version of .NET installed
+
 _______________________________________________________________________
 
 See the PayrollDocumentation.odt file for this project's documentation.
