@@ -598,7 +598,7 @@ namespace linkedlist
                 //default: temp = "";
             }
             if (temp == "")
-                temp = "!No result for your search.";
+                temp = "No result for your search!";
             return temp;
         }
 
