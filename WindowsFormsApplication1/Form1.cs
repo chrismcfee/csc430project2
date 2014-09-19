@@ -152,7 +152,7 @@ namespace WindowsFormsApplication1
 
         private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
-            textBox1.MaxLength = 15;
+            textBox1.MaxLength = 20;
             schoice = 7;
             if (comboBox1.Text == "Last Name")
                 schoice = 0;
@@ -337,6 +337,26 @@ namespace WindowsFormsApplication1
         }
 
         private void label12_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label14_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label13_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label12_Click_1(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label16_Click(object sender, EventArgs e)
         {
 
         }
@@ -546,7 +566,7 @@ namespace linkedlist
                 case 3:
                     for (int i = 0; i < noe; i++)
                     {
-                        if (tempnode.data.tax == Convert.ToDouble(word))
+                        if (tempnode.data.tax == Convert.ToDouble(word))  //BROKEN!
                             temp = temp + tempnode.data.getInfo() + "\n";
                         tempnode = tempnode.next;
                     }
@@ -625,12 +645,12 @@ namespace pinfo
         }
         public string getInfo()
         {
-            return (String.Format("{0,17:D}{1,13:D}{2,6:D}{3,15:D}{4,9:D}{5,15:D}{6,10:D}", id, lastname, firstname, benefit, tax.ToString(), gincome.ToString(), npay.ToString()));
+            return (String.Format("{0,10:D}{1,10:D}{2,10:D}{3,20:D}{4,10:D}{5,18:D}{6,10:D}", id, lastname, firstname, benefit, tax.ToString(), gincome.ToString(), npay.ToString()));
         }
 
         public string output()
         {
-            return id + "\t" + lastname + "\t" + firstname + "\t" + benefit + "\t" + tax.ToString() + "\t" + gincome.ToString();
+            return id + "\t" + lastname + "\t" + firstname + "\t" + benefit + "\t" + tax.ToString() + "\t" + gincome.ToString() + "\t" + npay.ToString();
         }
     }
 }
