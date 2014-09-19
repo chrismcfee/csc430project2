@@ -181,8 +181,8 @@ namespace WindowsFormsApplication1
             if (Convert.ToString(textBox5.Text) != "")
             {
                 string stemp;
-                int temp;
-                if (!int.TryParse(textBox5.Text, out temp))
+                double temp;
+                if (!double.TryParse(textBox5.Text, out temp))
                 {
                     stemp = textBox5.Text;
                     stemp = stemp.Substring(0,stemp.Length - 1);
@@ -198,8 +198,8 @@ namespace WindowsFormsApplication1
             if (Convert.ToString(textBox6.Text) != "")
             {
                 string stemp;
-                int temp;
-                if (!int.TryParse(textBox6.Text, out temp))
+                double temp;
+                if (!double.TryParse(textBox6.Text, out temp))
                 {
                     stemp = textBox6.Text;
                     stemp = stemp.Substring(0, stemp.Length - 1);
@@ -312,8 +312,8 @@ namespace WindowsFormsApplication1
             ntemp.data.lastname = textBox2.Text;
             ntemp.data.firstname = textBox3.Text;
             ntemp.data.benefit = textBox4.Text;
-            ntemp.data.tax = Convert.ToInt32(textBox5.Text);
-            ntemp.data.gincome = Convert.ToInt32(textBox6.Text);
+            ntemp.data.tax = Convert.ToDouble(textBox5.Text);
+            ntemp.data.gincome = Convert.ToDouble(textBox6.Text);
             textBox1.Text = "";
         }
 
