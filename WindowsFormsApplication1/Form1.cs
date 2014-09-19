@@ -566,7 +566,7 @@ namespace linkedlist
                 case 3:
                     for (int i = 0; i < noe; i++)
                     {
-                        if (tempnode.data.tax == Convert.ToDouble(word))  //BROKEN!
+                        if (tempnode.data.tax == Convert.ToDouble(word))
                             temp = temp + tempnode.data.getInfo() + "\n";
                         tempnode = tempnode.next;
                     }
