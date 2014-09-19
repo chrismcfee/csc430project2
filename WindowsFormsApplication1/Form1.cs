@@ -336,6 +336,11 @@ namespace WindowsFormsApplication1
 
         }
 
+        private void label12_Click(object sender, EventArgs e)
+        {
+
+        }
+
 
     }
 }
@@ -620,7 +625,7 @@ namespace pinfo
         }
         public string getInfo()
         {
-            return (String.Format("{0,17:D}{1,13:D}{2,6:D}{3,15:D}{4,9:D}{5,15:D}", id, lastname, firstname, benefit, tax.ToString(), gincome.ToString()));
+            return (String.Format("{0,17:D}{1,13:D}{2,6:D}{3,15:D}{4,9:D}{5,15:D}{6,10:D}", id, lastname, firstname, benefit, tax.ToString(), gincome.ToString(), npay.ToString()));
         }
 
         public string output()
