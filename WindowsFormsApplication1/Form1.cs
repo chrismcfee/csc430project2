@@ -14,6 +14,7 @@ namespace WindowsFormsApplication1
     using pinfo;
     using linkedlist;
 
+
     public partial class Form1 : Form
     {
         private FileStream input;
@@ -21,6 +22,7 @@ namespace WindowsFormsApplication1
         string fileName;
         private plist data;
         int schoice = 6;
+        bool changed = false;
         pnode ntemp;
         public Form1()
         {
@@ -31,10 +33,11 @@ namespace WindowsFormsApplication1
         {
             this.FormBorderStyle = FormBorderStyle.FixedSingle;
             data = new plist();
-            MessageBox.Show("Please open the database file to begin editing.", "ATTENTION");
+            MessageBox.Show("Please select the database file.", "ALERT");
             DialogResult result;
             using (OpenFileDialog fileChooser = new OpenFileDialog())
             {
+                fileChooser.FileName = "payrolldb.txt";
                 result = fileChooser.ShowDialog();
                 fileName = fileChooser.FileName;
             }
@@ -53,7 +56,7 @@ namespace WindowsFormsApplication1
                     }
                     richTextBox1.Text = data.display();
                     linkLabel1.Text = fileName;
-                    textBox7.Text = idgen();
+                    saveFileDialog1.FileName = fileName;
                     input.Close();
                 }
                 catch (IOException)
@@ -91,13 +94,14 @@ namespace WindowsFormsApplication1
                 data.input(temp);
 
                 line = temp[0] + "\t" +temp[1] + "\t" + temp[2] + "\t" + temp[3] + "\t" + temp[4] +"\t" + temp[5];
-                //File.AppendAllText(fileName, Environment.NewLine + line);
+                File.AppendAllText(fileName, Environment.NewLine + line);
                 searchtb1();
                 textBox2.Text = "";
                 textBox3.Text = "";
                 textBox4.Text = "";
                 textBox5.Text = "";
                 textBox6.Text = "";
+                changed = true;
             }
         }
 
@@ -128,6 +132,19 @@ namespace WindowsFormsApplication1
             }
         }
 
+        void netpaydisplay()
+        {
+            double gincome, tax;
+            if (textBox5.Text == "")
+                tax = 0;
+            else tax = Convert.ToDouble(textBox5.Text);
+            if (textBox6.Text == "")
+                gincome = 0;
+            else gincome = Convert.ToDouble(textBox6.Text);
+            double netpay = gincome - tax;
+            textBox7.Text = netpay.ToString();
+        }
+
         string idgen()
         {
             string index = "0000000000";
@@ -152,7 +169,7 @@ namespace WindowsFormsApplication1
 
         private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
-            textBox1.MaxLength = 20;
+            textBox1.MaxLength = 15;
             schoice = 7;
             if (comboBox1.Text == "Last Name")
                 schoice = 0;
@@ -176,6 +193,7 @@ namespace WindowsFormsApplication1
 
         }
 
+
         private void textBox5_TextChanged(object sender, EventArgs e)
         {
             if (Convert.ToString(textBox5.Text) != "")
@@ -185,11 +203,12 @@ namespace WindowsFormsApplication1
                 if (!double.TryParse(textBox5.Text, out temp))
                 {
                     stemp = textBox5.Text;
-                    stemp = stemp.Substring(0,stemp.Length - 1);
+                    stemp = stemp.Substring(0, stemp.Length - 1);
                     textBox5.Text = stemp;
                     toolTip1.Show("Please enter a number.", textBox5, 110, 10);
                     textBox5.SelectionStart = textBox5.Text.Length;
                 }
+                netpaydisplay();
             }
         }
 
@@ -207,59 +226,10 @@ namespace WindowsFormsApplication1
                     toolTip1.Show("Please enter a number.", textBox6, 110, 10);
                     textBox6.SelectionStart = textBox6.Text.Length;
                 }
+                netpaydisplay();
             }
         }
-        /*
-        private void textBox7_TextChanged(object sender, EventArgs e)
-        {
-            if (Convert.ToString(textBox7.Text) != "")
-            {
-                string stemp;
-                int temp;
-                if (!int.TryParse(textBox7.Text, out temp))
-                {
-                    stemp = textBox7.Text;
-                    stemp = stemp.Substring(0, stemp.Length - 1);
-                    textBox7.Text = stemp;
-                    toolTip1.Show("Please enter a number.", textBox7, 110, 10);
-                    textBox7.SelectionStart = textBox7.Text.Length;
-                }
-            }
-        }
-        
-        private void textBox8_TextChanged(object sender, EventArgs e)
-        {
-            if (Convert.ToString(textBox8.Text) != "")
-            {
-                string stemp;
-                int temp;
-                if (!int.TryParse(textBox8.Text, out temp))
-                {
-                    stemp = textBox8.Text;
-                    stemp = stemp.Substring(0, stemp.Length - 1);
-                    textBox8.Text = stemp;
-                    toolTip1.Show("Please enter a number.", textBox8, 110, 10);
-                    textBox8.SelectionStart = textBox8.Text.Length;
-                }
-            }
-        }
-
-        private void textBox9_TextChanged(object sender, EventArgs e)
-        {
-            if (Convert.ToString(textBox9.Text) != "")
-            {
-                string stemp;
-                int temp;
-                if (!int.TryParse(textBox9.Text, out temp))
-                {
-                    stemp = textBox9.Text;
-                    stemp = stemp.Substring(0, stemp.Length - 1);
-                    textBox9.Text = stemp;
-                    toolTip1.Show("Please enter a number.", textBox9, 110, 10);
-                    textBox9.SelectionStart = textBox9.Text.Length;
-                }
-            }
-        }*/
+       
 
         private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
@@ -287,6 +257,7 @@ namespace WindowsFormsApplication1
             textBox1.Text = "";
             modify.Enabled = false;
             delete.Enabled = false;
+            changed = true;
         }
 
         private void modify_Click(object sender, EventArgs e)
@@ -312,9 +283,10 @@ namespace WindowsFormsApplication1
             ntemp.data.lastname = textBox2.Text;
             ntemp.data.firstname = textBox3.Text;
             ntemp.data.benefit = textBox4.Text;
-            ntemp.data.tax = Convert.ToDouble(textBox5.Text);
-            ntemp.data.gincome = Convert.ToDouble(textBox6.Text);
+            ntemp.data.tax = Convert.ToInt32(textBox5.Text);
+            ntemp.data.gincome = Convert.ToInt32(textBox6.Text);
             textBox1.Text = "";
+            changed = true;
         }
 
         private void cancel_Click(object sender, EventArgs e)
@@ -328,35 +300,14 @@ namespace WindowsFormsApplication1
 
         private void Form1_FormClosing(object sender, FormClosingEventArgs e)
         {
+            if (changed == false) return;
+            saveFileDialog1.ShowDialog();
+            if (saveFileDialog1.FileName == "") return;
+            fileName = saveFileDialog1.FileName;
             File.WriteAllText(fileName, data.output());
         }
 
-        private void textBox4_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label12_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label14_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label13_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label12_Click_1(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label16_Click(object sender, EventArgs e)
+        private void richTextBox1_TextChanged(object sender, EventArgs e)
         {
 
         }
@@ -421,6 +372,7 @@ namespace linkedlist
             pnode tempnode = head;
             if (isEmpty())
                 return "The list contains NOTHING!";
+            temp = temp + String.Format("{0,12:D}{1,13:D}{2,16:D}{3,15:D}{4,15:D}{5,15:D}{6,15:D}", "ID", "Last Name", "First Name", "Benefit", "Tax", "Gross Income", "Net Pay\n\n");
             for (int i = 0; i < noe; i++)
             {
                 temp = temp + tempnode.data.getInfo() + "\n";
@@ -598,7 +550,7 @@ namespace linkedlist
                 //default: temp = "";
             }
             if (temp == "")
-                temp = "No result for your search!";
+                temp = "!No result for your search.";
             return temp;
         }
 
@@ -645,12 +597,12 @@ namespace pinfo
         }
         public string getInfo()
         {
-            return (String.Format("{0,10:D}{1,10:D}{2,10:D}{3,20:D}{4,10:D}{5,18:D}{6,10:D}", id, lastname, firstname, benefit, tax.ToString(), gincome.ToString(), npay.ToString()));
+            return (String.Format("{0,12:D}{1,13:D}{2,16:D}{3,15:D}{4,15:D}{5,15:D}{6,15:D}", id, lastname, firstname, benefit, tax.ToString(), gincome.ToString(), npay.ToString()));
         }
 
         public string output()
         {
-            return id + "\t" + lastname + "\t" + firstname + "\t" + benefit + "\t" + tax.ToString() + "\t" + gincome.ToString() + "\t" + npay.ToString();
+            return id + "\t" + lastname + "\t" + firstname + "\t" + benefit + "\t" + tax.ToString() + "\t" + gincome.ToString();
         }
     }
 }

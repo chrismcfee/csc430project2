@@ -124,7 +124,7 @@
   <data name="delete.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAAA8AAAAPCAYAAAA71pVKAAAAIGNIUk0AAHolAACAgwAA+f8AAIDpAAB1
-        MAAA6mAAADqYAAAXb5JfxUYAAAAJcEhZcwAACw0AAAsNAe0HwCwAAAK0SURBVDhPnZJJSFtRFIavulIQ
+        MAAA6mAAADqYAAAXb5JfxUYAAAAJcEhZcwAACwwAAAsMAT9AIsgAAAK0SURBVDhPnZJJSFtRFIavulIQ
         FwFBQayiqAQ3NopKqQMOGKUOJZhFcESCIiKKKK4UghtFERcuuggoLmqtkThAa7UtVnxR1FKDGmclI0mM
         mTST+XvzUgttdz3wc987vO8/5/1cAuC/FXwghNg5HMLk5hIFl/vyoKRk6ryp6exSLL49aWs7Z7q6Zr5O
         ThYrLi6IxmL5Cw4JIebwcKIoLBzVt7bCNzYGzMwAMhmrx+FhXIhEmBOJpCd6/Z/wYVoaUfJ4o3cdHfAP
@@ -139,4 +139,7 @@
         R2YzUSqV5Prq6hcD8hOGX2RnylDJOwAAAABJRU5ErkJggg==
 </value>
   </data>
+  <metadata name="saveFileDialog1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>126, 17</value>
+  </metadata>
 </root>
