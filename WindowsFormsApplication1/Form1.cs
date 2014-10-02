@@ -28,12 +28,12 @@ namespace WindowsFormsApplication1
         {
             InitializeComponent();
         }
-
+        
         private void Form1_Load(object sender, EventArgs e)
         {
             this.FormBorderStyle = FormBorderStyle.FixedSingle;
             data = new plist();
-            MessageBox.Show("Please select the database file.", "ALERT");
+            MessageBox.Show("Please browse to the location of the database file", "Select Database");
             DialogResult result;
             using (OpenFileDialog fileChooser = new OpenFileDialog())
             {
@@ -91,16 +91,15 @@ namespace WindowsFormsApplication1
                     temp[4] = "00";
                 if (textBox6.Text == "")
                     temp[5] = "00";
+                if (checkBox1.Checked == false)
+                    temp[6] = "NO";
+                else temp[6] = "YES";
                 data.input(temp);
 
-                line = temp[0] + "\t" +temp[1] + "\t" + temp[2] + "\t" + temp[3] + "\t" + temp[4] +"\t" + temp[5];
+                line = temp[0] + "\t" +temp[1] + "\t" + temp[2] + "\t" + temp[3] + "\t" + temp[4] +"\t" + temp[5] + "\t" + temp[6];
                 File.AppendAllText(fileName, Environment.NewLine + line);
                 searchtb1();
-                textBox2.Text = "";
-                textBox3.Text = "";
-                textBox4.Text = "";
-                textBox5.Text = "";
-                textBox6.Text = "";
+                cleartb();
                 changed = true;
             }
         }
@@ -170,7 +169,7 @@ namespace WindowsFormsApplication1
         private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
             textBox1.MaxLength = 15;
-            schoice = 7;
+            schoice = 8;
             if (comboBox1.Text == "Last Name")
                 schoice = 0;
             if (comboBox1.Text == "First Name")
@@ -185,6 +184,8 @@ namespace WindowsFormsApplication1
                 schoice = 5;
             if (comboBox1.Text == "ID")
                 schoice = 6;
+            if (comboBox1.Text == "Check")
+                schoice = 7;
             searchtb1();
         }
 
@@ -267,12 +268,26 @@ namespace WindowsFormsApplication1
             cancel.Enabled = true;
             modify.Enabled = false;
             delete.Enabled = false;
-            ntemp = data.findnode(data.searchnode(textBox1.Text.ToUpper(), schoice));
+            ntemp = data.findnode(data.searchnode(textBox1.Text.ToUpper(), schoice)+1);
             textBox2.Text = ntemp.data.lastname;
             textBox3.Text = ntemp.data.firstname;
             textBox4.Text = ntemp.data.benefit;
             textBox5.Text = ntemp.data.tax.ToString();
             textBox6.Text = ntemp.data.gincome.ToString();
+            if (ntemp.data.check == "NO")
+                checkBox1.Checked = false;
+            else checkBox1.Checked = true;
+        }
+
+        void cleartb()
+        {
+            textBox2.Text = "";
+            textBox3.Text = "";
+            textBox4.Text = "";
+            textBox5.Text = "";
+            textBox6.Text = "";
+            textBox7.Text = "";
+            checkBox1.Checked = false;
         }
 
         private void save_Click(object sender, EventArgs e)
@@ -283,10 +298,14 @@ namespace WindowsFormsApplication1
             ntemp.data.lastname = textBox2.Text;
             ntemp.data.firstname = textBox3.Text;
             ntemp.data.benefit = textBox4.Text;
-            ntemp.data.tax = Convert.ToInt32(textBox5.Text);
-            ntemp.data.gincome = Convert.ToInt32(textBox6.Text);
+            ntemp.data.tax = Convert.ToDouble(textBox5.Text);
+            ntemp.data.gincome = Convert.ToDouble(textBox6.Text);
+            if (checkBox1.Checked == false)
+                ntemp.data.check = "NO";
+            else ntemp.data.check = "YES";
             textBox1.Text = "";
-            changed = true;
+            cleartb();
+            changed = true;   
         }
 
         private void cancel_Click(object sender, EventArgs e)
@@ -296,6 +315,7 @@ namespace WindowsFormsApplication1
             cancel.Enabled = false;
             textBox1.Text = "";
             searchtb1();
+            cleartb();
         }
 
         private void Form1_FormClosing(object sender, FormClosingEventArgs e)
@@ -372,7 +392,7 @@ namespace linkedlist
             pnode tempnode = head;
             if (isEmpty())
                 return "The list contains NOTHING!";
-            temp = temp + String.Format("{0,12:D}{1,13:D}{2,16:D}{3,15:D}{4,15:D}{5,15:D}{6,15:D}", "ID", "Last Name", "First Name", "Benefit", "Tax", "Gross Income", "Net Pay\n\n");
+            temp = temp + String.Format("{0,12:D}{1,13:D}{2,16:D}{3,15:D}{4,15:D}{5,15:D}{6,15:D}{7,10:D}", "ID", "Last Name", "First Name", "Benefit", "Tax", "Gross Income", "Net Pay", "Check\n\n");
             for (int i = 0; i < noe; i++)
             {
                 temp = temp + tempnode.data.getInfo() + "\n";
@@ -479,6 +499,14 @@ namespace linkedlist
                         tempnode = tempnode.next;
                     }
                     break;
+                case 7:
+                    for (i = 0; i < noe; i++)
+                    {
+                        if (tempnode.data.check.Contains(word))
+                            return i;
+                        tempnode = tempnode.next;
+                    }
+                    break;
             }
             return i;
         }
@@ -547,6 +575,14 @@ namespace linkedlist
                         tempnode = tempnode.next;
                     }
                     break;
+                case 7:
+                    for (int i = 0; i < noe; i++)
+                    {
+                        if (tempnode.data.check.Contains(word))
+                            temp = temp + tempnode.data.getInfo() + "\n";
+                        tempnode = tempnode.next;
+                    }
+                    break;
                 //default: temp = "";
             }
             if (temp == "")
@@ -579,7 +615,7 @@ namespace pinfo
     public class person
     {
         //private static date dob = new date();
-        public string id = "",lastname = "",firstname = "", benefit = "";
+        public string id = "",lastname = "",firstname = "", benefit = "", check = "";
         public double tax, gincome, npay;
         public void input(string[] source)
         {
@@ -589,6 +625,7 @@ namespace pinfo
             benefit = source[3];
             tax = Convert.ToDouble(source[4]);
             gincome = Convert.ToDouble(source[5]);
+            check = source[6];
             npay = gincome - tax;
         }
         public int getid()
@@ -597,12 +634,12 @@ namespace pinfo
         }
         public string getInfo()
         {
-            return (String.Format("{0,12:D}{1,13:D}{2,16:D}{3,15:D}{4,15:D}{5,15:D}{6,15:D}", id, lastname, firstname, benefit, tax.ToString(), gincome.ToString(), npay.ToString()));
+            return (String.Format("{0,12:D}{1,13:D}{2,16:D}{3,15:D}{4,15:D}{5,15:D}{6,15:D}{7,8:D}", id, lastname, firstname, benefit, tax.ToString(), gincome.ToString(), npay.ToString(), check));
         }
 
         public string output()
         {
-            return id + "\t" + lastname + "\t" + firstname + "\t" + benefit + "\t" + tax.ToString() + "\t" + gincome.ToString();
+            return id + "\t" + lastname + "\t" + firstname + "\t" + benefit + "\t" + tax.ToString() + "\t" + gincome.ToString() + "\t" + check;
         }
     }
 }
