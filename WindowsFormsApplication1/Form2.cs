@@ -65,6 +65,19 @@ namespace WindowsFormsApplication1
             this.button1.Location = new System.Drawing.Point(117, 290);
         }
 
+        /*public void shownetpay(taxes[] source)
+        {
+            this.Text = "Benefit List";
+            label1.Text = "Benefit List";
+            choice = "Benefit\t";
+            value = "%";
+            kind = "Percentage";
+            showrtb(source);
+            this.ClientSize = new System.Drawing.Size(250, 330);
+            this.richTextBox1.Size = new System.Drawing.Size(226, 226);
+            this.button1.Location = new System.Drawing.Point(117, 290);
+        }*/
+
         private void button1_Click(object sender, EventArgs e)
         {
             this.Close();

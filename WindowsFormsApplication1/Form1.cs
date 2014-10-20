@@ -769,7 +769,7 @@ namespace linkedlist
                 //default: temp = "";
             }
             if (temp == "")
-                temp = "!No result for your search.";
+                temp = "No result for your search.";
             else
                 temp = String.Format("{0,12:D}{1,13:D}{2,16:D}{3,7:D}{4,15:D}{5,15:D}{6,15:D}{7,15:D}{8,10:D}{9,18:D}", "ID", "Last Name", "First Name", "State", "Benefit", "Tax", "Gross Income", "Net Pay","Check", "Account Number\n\n") + temp;
             return temp;
