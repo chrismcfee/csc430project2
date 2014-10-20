@@ -61,15 +61,23 @@
             this.label12 = new System.Windows.Forms.Label();
             this.checkBox1 = new System.Windows.Forms.CheckBox();
             this.label13 = new System.Windows.Forms.Label();
+            this.comboBox2 = new System.Windows.Forms.ComboBox();
             this.label14 = new System.Windows.Forms.Label();
+            this.button2 = new System.Windows.Forms.Button();
+            this.button3 = new System.Windows.Forms.Button();
+            this.accountnumtb = new System.Windows.Forms.TextBox();
+            this.routingnumtb = new System.Windows.Forms.TextBox();
+            this.label15 = new System.Windows.Forms.Label();
+            this.label16 = new System.Windows.Forms.Label();
+            this.button4 = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // button1
             // 
             this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.Location = new System.Drawing.Point(885, 483);
+            this.button1.Location = new System.Drawing.Point(888, 476);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(143, 39);
+            this.button1.Size = new System.Drawing.Size(143, 34);
             this.button1.TabIndex = 11;
             this.button1.Text = "Submit";
             this.button1.UseVisualStyleBackColor = true;
@@ -92,7 +100,7 @@
             this.richTextBox1.Location = new System.Drawing.Point(32, 97);
             this.richTextBox1.Name = "richTextBox1";
             this.richTextBox1.ReadOnly = true;
-            this.richTextBox1.Size = new System.Drawing.Size(1011, 341);
+            this.richTextBox1.Size = new System.Drawing.Size(1012, 341);
             this.richTextBox1.TabIndex = 0;
             this.richTextBox1.Text = "";
             this.richTextBox1.TextChanged += new System.EventHandler(this.richTextBox1_TextChanged);
@@ -104,6 +112,7 @@
             "ID",
             "Last Name",
             "First Name",
+            "State",
             "Benefit",
             "Tax",
             "Gross Income",
@@ -139,6 +148,7 @@
             this.textBox4.Name = "textBox4";
             this.textBox4.Size = new System.Drawing.Size(145, 20);
             this.textBox4.TabIndex = 5;
+            this.textBox4.TextChanged += new System.EventHandler(this.textBox4_TextChanged);
             // 
             // textBox5
             // 
@@ -236,9 +246,9 @@
             this.label10.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label10.Location = new System.Drawing.Point(30, 451);
             this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(128, 13);
+            this.label10.Size = new System.Drawing.Size(193, 13);
             this.label10.TabIndex = 15;
-            this.label10.Text = "Employee Information";
+            this.label10.Text = "Enter people\'s information option";
             // 
             // label11
             // 
@@ -246,14 +256,14 @@
             this.label11.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label11.Location = new System.Drawing.Point(31, 78);
             this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(120, 13);
+            this.label11.Size = new System.Drawing.Size(143, 13);
             this.label11.TabIndex = 16;
-            this.label11.Text = "Data/Search Result";
+            this.label11.Text = "Data and Search Result";
             // 
             // modify
             // 
             this.modify.Enabled = false;
-            this.modify.Location = new System.Drawing.Point(535, 49);
+            this.modify.Location = new System.Drawing.Point(843, 59);
             this.modify.Name = "modify";
             this.modify.Size = new System.Drawing.Size(75, 23);
             this.modify.TabIndex = 18;
@@ -266,7 +276,7 @@
             this.delete.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("delete.BackgroundImage")));
             this.delete.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.delete.Enabled = false;
-            this.delete.Location = new System.Drawing.Point(535, 17);
+            this.delete.Location = new System.Drawing.Point(843, 27);
             this.delete.Name = "delete";
             this.delete.Size = new System.Drawing.Size(75, 23);
             this.delete.TabIndex = 19;
@@ -277,9 +287,9 @@
             // save
             // 
             this.save.Enabled = false;
-            this.save.Location = new System.Drawing.Point(885, 541);
+            this.save.Location = new System.Drawing.Point(888, 516);
             this.save.Name = "save";
-            this.save.Size = new System.Drawing.Size(85, 32);
+            this.save.Size = new System.Drawing.Size(85, 35);
             this.save.TabIndex = 20;
             this.save.Text = "Save";
             this.save.UseVisualStyleBackColor = true;
@@ -288,7 +298,7 @@
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(620, 22);
+            this.label6.Location = new System.Drawing.Point(928, 32);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(113, 13);
             this.label6.TabIndex = 21;
@@ -297,7 +307,7 @@
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(620, 54);
+            this.label7.Location = new System.Drawing.Point(928, 64);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(113, 13);
             this.label7.TabIndex = 22;
@@ -306,9 +316,9 @@
             // cancel
             // 
             this.cancel.Enabled = false;
-            this.cancel.Location = new System.Drawing.Point(975, 541);
+            this.cancel.Location = new System.Drawing.Point(977, 516);
             this.cancel.Name = "cancel";
-            this.cancel.Size = new System.Drawing.Size(53, 31);
+            this.cancel.Size = new System.Drawing.Size(53, 34);
             this.cancel.TabIndex = 23;
             this.cancel.Text = "Cancel";
             this.cancel.UseVisualStyleBackColor = true;
@@ -340,7 +350,7 @@
             // checkBox1
             // 
             this.checkBox1.AutoSize = true;
-            this.checkBox1.Location = new System.Drawing.Point(595, 483);
+            this.checkBox1.Location = new System.Drawing.Point(343, 557);
             this.checkBox1.Margin = new System.Windows.Forms.Padding(2);
             this.checkBox1.Name = "checkBox1";
             this.checkBox1.Size = new System.Drawing.Size(15, 14);
@@ -350,29 +360,164 @@
             // label13
             // 
             this.label13.AutoSize = true;
-            this.label13.Location = new System.Drawing.Point(532, 483);
+            this.label13.Location = new System.Drawing.Point(258, 556);
             this.label13.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label13.Name = "label13";
             this.label13.Size = new System.Drawing.Size(38, 13);
             this.label13.TabIndex = 27;
             this.label13.Text = "Check";
             // 
+            // comboBox2
+            // 
+            this.comboBox2.FormattingEnabled = true;
+            this.comboBox2.Items.AddRange(new object[] {
+            "AL",
+            "AK",
+            "AZ",
+            "AR",
+            "CA",
+            "CO",
+            "CT",
+            "DE",
+            "FL",
+            "GA",
+            "HI",
+            "ID",
+            "IL",
+            "IN",
+            "IA",
+            "KS",
+            "KY",
+            "ME",
+            "MD",
+            "MA",
+            "MI",
+            "MN",
+            "MS",
+            "MO",
+            "MT",
+            "NE",
+            "NV",
+            "NH",
+            "NJ",
+            "NM",
+            "NY",
+            "NC",
+            "ND",
+            "OH",
+            "OK",
+            "OR",
+            "PA",
+            "RI",
+            "SC",
+            "SD",
+            "TN",
+            "TX",
+            "UT",
+            "VT",
+            "VA",
+            "WA",
+            "WV",
+            "WI",
+            "WY"});
+            this.comboBox2.Location = new System.Drawing.Point(625, 502);
+            this.comboBox2.Name = "comboBox2";
+            this.comboBox2.Size = new System.Drawing.Size(93, 21);
+            this.comboBox2.TabIndex = 28;
+            this.comboBox2.SelectedIndexChanged += new System.EventHandler(this.comboBox2_SelectedIndexChanged);
+            // 
             // label14
             // 
             this.label14.AutoSize = true;
-            this.label14.Font = new System.Drawing.Font("Lucida Console", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label14.Location = new System.Drawing.Point(535, 541);
+            this.label14.Location = new System.Drawing.Point(500, 505);
             this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(138, 11);
-            this.label14.TabIndex = 28;
-            this.label14.Text = "2014 © Group 5 Inc.";
+            this.label14.Size = new System.Drawing.Size(32, 13);
+            this.label14.TabIndex = 29;
+            this.label14.Text = "State";
+            this.label14.Click += new System.EventHandler(this.label14_Click);
+            // 
+            // button2
+            // 
+            this.button2.Location = new System.Drawing.Point(754, 479);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(128, 29);
+            this.button2.TabIndex = 30;
+            this.button2.Text = "Display State Tax List";
+            this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
+            // 
+            // button3
+            // 
+            this.button3.Location = new System.Drawing.Point(754, 519);
+            this.button3.Name = "button3";
+            this.button3.Size = new System.Drawing.Size(128, 29);
+            this.button3.TabIndex = 31;
+            this.button3.Text = "Display Benefit List";
+            this.button3.UseVisualStyleBackColor = true;
+            this.button3.Click += new System.EventHandler(this.button3_Click_1);
+            // 
+            // accountnumtb
+            // 
+            this.accountnumtb.Location = new System.Drawing.Point(593, 476);
+            this.accountnumtb.MaxLength = 9;
+            this.accountnumtb.Name = "accountnumtb";
+            this.accountnumtb.Size = new System.Drawing.Size(125, 20);
+            this.accountnumtb.TabIndex = 32;
+            this.accountnumtb.TextChanged += new System.EventHandler(this.accountnumtb_TextChanged);
+            // 
+            // routingnumtb
+            // 
+            this.routingnumtb.Enabled = false;
+            this.routingnumtb.Location = new System.Drawing.Point(593, 528);
+            this.routingnumtb.Name = "routingnumtb";
+            this.routingnumtb.Size = new System.Drawing.Size(125, 20);
+            this.routingnumtb.TabIndex = 33;
+            // 
+            // label15
+            // 
+            this.label15.AutoSize = true;
+            this.label15.Location = new System.Drawing.Point(500, 479);
+            this.label15.Name = "label15";
+            this.label15.Size = new System.Drawing.Size(87, 13);
+            this.label15.TabIndex = 34;
+            this.label15.Text = "Account Number";
+            this.label15.Click += new System.EventHandler(this.label15_Click);
+            // 
+            // label16
+            // 
+            this.label16.AutoSize = true;
+            this.label16.Location = new System.Drawing.Point(499, 532);
+            this.label16.Name = "label16";
+            this.label16.Size = new System.Drawing.Size(84, 13);
+            this.label16.TabIndex = 34;
+            this.label16.Text = "Routing Number";
+            this.label16.Click += new System.EventHandler(this.label15_Click);
+            // 
+            // button4
+            // 
+            this.button4.Enabled = false;
+            this.button4.Location = new System.Drawing.Point(724, 27);
+            this.button4.Name = "button4";
+            this.button4.Size = new System.Drawing.Size(102, 55);
+            this.button4.TabIndex = 35;
+            this.button4.Text = "Display Person Information";
+            this.button4.UseVisualStyleBackColor = true;
+            this.button4.Click += new System.EventHandler(this.button4_Click);
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1055, 580);
+            this.ClientSize = new System.Drawing.Size(1076, 580);
+            this.Controls.Add(this.button4);
+            this.Controls.Add(this.label16);
+            this.Controls.Add(this.label15);
+            this.Controls.Add(this.routingnumtb);
+            this.Controls.Add(this.accountnumtb);
+            this.Controls.Add(this.button3);
+            this.Controls.Add(this.button2);
             this.Controls.Add(this.label14);
+            this.Controls.Add(this.comboBox2);
             this.Controls.Add(this.label13);
             this.Controls.Add(this.checkBox1);
             this.Controls.Add(this.label12);
@@ -402,7 +547,6 @@
             this.Controls.Add(this.richTextBox1);
             this.Controls.Add(this.textBox1);
             this.Controls.Add(this.button1);
-            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "Form1";
             this.Text = "Group 5 - Payroll Application";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Form1_FormClosing);
@@ -445,7 +589,15 @@
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.CheckBox checkBox1;
         private System.Windows.Forms.Label label13;
+        private System.Windows.Forms.ComboBox comboBox2;
         private System.Windows.Forms.Label label14;
+        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.TextBox accountnumtb;
+        private System.Windows.Forms.TextBox routingnumtb;
+        private System.Windows.Forms.Label label15;
+        private System.Windows.Forms.Label label16;
+        private System.Windows.Forms.Button button4;
     }
 }
 

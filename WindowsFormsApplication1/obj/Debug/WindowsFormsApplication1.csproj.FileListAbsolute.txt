@@ -38,11 +38,37 @@ C:\Users\ManhTuan\Dropbox\lab\Group5-PayrollApp\WindowsFormsApplication1\obj\Deb
 C:\Users\ManhTuan\Dropbox\lab\Group5-PayrollApp\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.Form1.resources
 C:\Users\ManhTuan\Dropbox\lab\Group5-PayrollApp\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.Properties.Resources.resources
 C:\Users\ManhTuan\Dropbox\lab\Group5-PayrollApp\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.csproj.GenerateResource.Cache
+C:\Users\CharleneX\Dropbox\lab\Group5-PayrollApp\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.exe
+C:\Users\CharleneX\Dropbox\lab\Group5-PayrollApp\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.pdb
+C:\Users\CharleneX\Dropbox\lab\Group5-PayrollApp\WindowsFormsApplication1\bin\Debug\WindowsFormsApplication1.exe
+C:\Users\CharleneX\Dropbox\lab\Group5-PayrollApp\WindowsFormsApplication1\bin\Debug\WindowsFormsApplication1.pdb
+C:\Users\CharleneX\Dropbox\lab\Group5-PayrollApp\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.csprojResolveAssemblyReference.cache
+C:\Users\CharleneX\Dropbox\lab\Group5-PayrollApp\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.Form1.resources
+C:\Users\CharleneX\Dropbox\lab\Group5-PayrollApp\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.Properties.Resources.resources
+C:\Users\CharleneX\Dropbox\lab\Group5-PayrollApp\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.csproj.GenerateResource.Cache
+C:\Users\CharleneX\Dropbox\lab\Group5-PayrollApp\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.Form2.resources
+C:\Users\CharleneX\Dropbox\lab\Group5-PayrollApp\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.CheckWindow.resources
+C:\Users\Dan\Desktop\Group5-PayrollApp\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.exe
+C:\Users\Dan\Desktop\Group5-PayrollApp\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.pdb
+C:\home\muhpayroll\dtppxm\Group5-PayrollApp\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.exe
+C:\home\muhpayroll\dtppxm\Group5-PayrollApp\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.pdb
+C:\Users\Christopher\Documents\Visual Studio 2013\Projects\Group5-PayrollApp\Group5-PayrollApp\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.exe
+C:\Users\Christopher\Documents\Visual Studio 2013\Projects\Group5-PayrollApp\Group5-PayrollApp\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.pdb
+C:\Users\Christopher\Documents\Visual Studio 2013\Projects\Group5-PayrollApp\Group5-PayrollApp\WindowsFormsApplication1\bin\Debug\WindowsFormsApplication1.exe
+C:\Users\Christopher\Documents\Visual Studio 2013\Projects\Group5-PayrollApp\Group5-PayrollApp\WindowsFormsApplication1\bin\Debug\WindowsFormsApplication1.pdb
+C:\Users\Christopher\Documents\Visual Studio 2013\Projects\Group5-PayrollApp\Group5-PayrollApp\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.csprojResolveAssemblyReference.cache
+C:\Users\Christopher\Documents\Visual Studio 2013\Projects\Group5-PayrollApp\Group5-PayrollApp\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.CheckWindow.resources
+C:\Users\Christopher\Documents\Visual Studio 2013\Projects\Group5-PayrollApp\Group5-PayrollApp\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.Form1.resources
+C:\Users\Christopher\Documents\Visual Studio 2013\Projects\Group5-PayrollApp\Group5-PayrollApp\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.Form2.resources
+C:\Users\Christopher\Documents\Visual Studio 2013\Projects\Group5-PayrollApp\Group5-PayrollApp\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.Properties.Resources.resources
+C:\Users\Christopher\Documents\Visual Studio 2013\Projects\Group5-PayrollApp\Group5-PayrollApp\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.csproj.GenerateResource.Cache
 C:\Users\Christopher\Documents\Visual Studio 2013\Projects\csc430project2\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.exe
 C:\Users\Christopher\Documents\Visual Studio 2013\Projects\csc430project2\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.pdb
 C:\Users\Christopher\Documents\Visual Studio 2013\Projects\csc430project2\WindowsFormsApplication1\bin\Debug\WindowsFormsApplication1.exe
 C:\Users\Christopher\Documents\Visual Studio 2013\Projects\csc430project2\WindowsFormsApplication1\bin\Debug\WindowsFormsApplication1.pdb
 C:\Users\Christopher\Documents\Visual Studio 2013\Projects\csc430project2\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.csprojResolveAssemblyReference.cache
+C:\Users\Christopher\Documents\Visual Studio 2013\Projects\csc430project2\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.CheckWindow.resources
 C:\Users\Christopher\Documents\Visual Studio 2013\Projects\csc430project2\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.Form1.resources
+C:\Users\Christopher\Documents\Visual Studio 2013\Projects\csc430project2\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.Form2.resources
 C:\Users\Christopher\Documents\Visual Studio 2013\Projects\csc430project2\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.Properties.Resources.resources
 C:\Users\Christopher\Documents\Visual Studio 2013\Projects\csc430project2\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.csproj.GenerateResource.Cache
