@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -64,7 +64,7 @@ namespace WindowsFormsApplication1
             data = data + "Employee Tax:\t$ " + source.data.tax.ToString() +"\n";
             data = data + "Routing Number:\t" + rtnum + "\n";
             data = data + "Account Number:\t" + source.data.accnum + "\n";
-            data = data + "Net Pay:\t\t" + source.data.npay.ToString();
+            data = data + "Net Pay:\t\t$ " + source.data.npay.ToString();
             richTextBox1.Text = data;
             richTextBox1.Enabled = false;
             label1.Text = source.data.firstname + " " + source.data.lastname + "'s Information:";
