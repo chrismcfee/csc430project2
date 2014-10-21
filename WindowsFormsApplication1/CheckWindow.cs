@@ -35,7 +35,7 @@ namespace WindowsFormsApplication1
             int i = 0;
             data = data + "First Name:\t" + source.data.firstname + "\n";
             data = data + "Last Name:\t" + source.data.lastname + "\n";
-            data = data + "Gross Income:\t" + source.data.gincome.ToString() + "\n";
+            data = data + "Gross Income:\t$ " + source.data.gincome.ToString() + "\n";
             while (states[i] != null)
             {
                 if (states[i].names == source.data.state)
@@ -47,8 +47,8 @@ namespace WindowsFormsApplication1
                 i++;
             }
             data = data + "State:\t\t" + source.data.state + "\n";
-            data = data + "State Tax:\t" + stax + "\n";
-            data = data + "Local Tax:\t" + "N/A" + "\n";
+            data = data + "State Tax:\t$ " + stax + "\n";
+            //data = data + "Local Tax:\t" + "N/A" + "\n";
             data = data + "Benefit Type:\t" + source.data.benefit + "\n";
             i = 0;
             while (benefits[i] != null)
@@ -60,10 +60,11 @@ namespace WindowsFormsApplication1
                 }
                 i++;
             }
-            data = data + "Benefit:\t\t" + bene + "\n";
-            data = data + "Employee Tax:\t" + "N/A" + "\n";
+            data = data + "Benefit:\t\t% " + bene + "\n";
+            data = data + "Employee Tax:\t$ " + source.data.tax.ToString() +"\n";
             data = data + "Routing Number:\t" + rtnum + "\n";
             data = data + "Account Number:\t" + source.data.accnum + "\n";
+            data = data + "Net Pay:\t\t" + source.data.npay.ToString();
             richTextBox1.Text = data;
             richTextBox1.Enabled = false;
             label1.Text = source.data.firstname + " " + source.data.lastname + "'s Information:";

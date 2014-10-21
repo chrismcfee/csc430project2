@@ -69,6 +69,8 @@
             this.Controls.Add(this.label1);
             this.Controls.Add(this.richTextBox1);
             this.Name = "CheckWindow";
+            this.ShowIcon = false;
+            this.ShowInTaskbar = false;
             this.Text = "Form3";
             this.Load += new System.EventHandler(this.CheckWindow_Load);
             this.ResumeLayout(false);

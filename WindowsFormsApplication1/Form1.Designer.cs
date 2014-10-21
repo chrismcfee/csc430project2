@@ -70,6 +70,7 @@
             this.label15 = new System.Windows.Forms.Label();
             this.label16 = new System.Windows.Forms.Label();
             this.button4 = new System.Windows.Forms.Button();
+            this.button5 = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // button1
@@ -78,7 +79,7 @@
             this.button1.Location = new System.Drawing.Point(888, 476);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(143, 34);
-            this.button1.TabIndex = 11;
+            this.button1.TabIndex = 27;
             this.button1.Text = "Submit";
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
@@ -131,7 +132,7 @@
             this.textBox2.MaxLength = 15;
             this.textBox2.Name = "textBox2";
             this.textBox2.Size = new System.Drawing.Size(145, 20);
-            this.textBox2.TabIndex = 3;
+            this.textBox2.TabIndex = 7;
             // 
             // textBox3
             // 
@@ -139,7 +140,7 @@
             this.textBox3.MaxLength = 15;
             this.textBox3.Name = "textBox3";
             this.textBox3.Size = new System.Drawing.Size(145, 20);
-            this.textBox3.TabIndex = 4;
+            this.textBox3.TabIndex = 8;
             // 
             // textBox4
             // 
@@ -147,7 +148,7 @@
             this.textBox4.MaxLength = 10;
             this.textBox4.Name = "textBox4";
             this.textBox4.Size = new System.Drawing.Size(145, 20);
-            this.textBox4.TabIndex = 5;
+            this.textBox4.TabIndex = 9;
             this.textBox4.TextChanged += new System.EventHandler(this.textBox4_TextChanged);
             // 
             // textBox5
@@ -155,7 +156,7 @@
             this.textBox5.Location = new System.Drawing.Point(343, 476);
             this.textBox5.Name = "textBox5";
             this.textBox5.Size = new System.Drawing.Size(151, 20);
-            this.textBox5.TabIndex = 6;
+            this.textBox5.TabIndex = 10;
             this.textBox5.TextChanged += new System.EventHandler(this.textBox5_TextChanged);
             // 
             // textBox6
@@ -163,7 +164,7 @@
             this.textBox6.Location = new System.Drawing.Point(343, 502);
             this.textBox6.Name = "textBox6";
             this.textBox6.Size = new System.Drawing.Size(151, 20);
-            this.textBox6.TabIndex = 7;
+            this.textBox6.TabIndex = 11;
             this.textBox6.TextChanged += new System.EventHandler(this.textBox6_TextChanged);
             // 
             // label1
@@ -266,7 +267,7 @@
             this.modify.Location = new System.Drawing.Point(843, 59);
             this.modify.Name = "modify";
             this.modify.Size = new System.Drawing.Size(75, 23);
-            this.modify.TabIndex = 18;
+            this.modify.TabIndex = 4;
             this.modify.Text = "Modify";
             this.modify.UseVisualStyleBackColor = true;
             this.modify.Click += new System.EventHandler(this.modify_Click);
@@ -279,7 +280,7 @@
             this.delete.Location = new System.Drawing.Point(843, 27);
             this.delete.Name = "delete";
             this.delete.Size = new System.Drawing.Size(75, 23);
-            this.delete.TabIndex = 19;
+            this.delete.TabIndex = 50;
             this.delete.Text = "Delete";
             this.delete.UseVisualStyleBackColor = true;
             this.delete.Click += new System.EventHandler(this.delete_Click);
@@ -290,7 +291,7 @@
             this.save.Location = new System.Drawing.Point(888, 516);
             this.save.Name = "save";
             this.save.Size = new System.Drawing.Size(85, 35);
-            this.save.TabIndex = 20;
+            this.save.TabIndex = 28;
             this.save.Text = "Save";
             this.save.UseVisualStyleBackColor = true;
             this.save.Click += new System.EventHandler(this.save_Click);
@@ -319,7 +320,7 @@
             this.cancel.Location = new System.Drawing.Point(977, 516);
             this.cancel.Name = "cancel";
             this.cancel.Size = new System.Drawing.Size(53, 34);
-            this.cancel.TabIndex = 23;
+            this.cancel.TabIndex = 29;
             this.cancel.Text = "Cancel";
             this.cancel.UseVisualStyleBackColor = true;
             this.cancel.Click += new System.EventHandler(this.cancel_Click);
@@ -335,7 +336,7 @@
             this.textBox7.Margin = new System.Windows.Forms.Padding(2);
             this.textBox7.Name = "textBox7";
             this.textBox7.Size = new System.Drawing.Size(151, 20);
-            this.textBox7.TabIndex = 24;
+            this.textBox7.TabIndex = 99;
             // 
             // label12
             // 
@@ -354,7 +355,7 @@
             this.checkBox1.Margin = new System.Windows.Forms.Padding(2);
             this.checkBox1.Name = "checkBox1";
             this.checkBox1.Size = new System.Drawing.Size(15, 14);
-            this.checkBox1.TabIndex = 26;
+            this.checkBox1.TabIndex = 12;
             this.checkBox1.UseVisualStyleBackColor = true;
             // 
             // label13
@@ -423,7 +424,7 @@
             this.comboBox2.Location = new System.Drawing.Point(625, 502);
             this.comboBox2.Name = "comboBox2";
             this.comboBox2.Size = new System.Drawing.Size(93, 21);
-            this.comboBox2.TabIndex = 28;
+            this.comboBox2.TabIndex = 14;
             this.comboBox2.SelectedIndexChanged += new System.EventHandler(this.comboBox2_SelectedIndexChanged);
             // 
             // label14
@@ -462,7 +463,7 @@
             this.accountnumtb.MaxLength = 9;
             this.accountnumtb.Name = "accountnumtb";
             this.accountnumtb.Size = new System.Drawing.Size(125, 20);
-            this.accountnumtb.TabIndex = 32;
+            this.accountnumtb.TabIndex = 13;
             this.accountnumtb.TextChanged += new System.EventHandler(this.accountnumtb_TextChanged);
             // 
             // routingnumtb
@@ -471,7 +472,7 @@
             this.routingnumtb.Location = new System.Drawing.Point(593, 528);
             this.routingnumtb.Name = "routingnumtb";
             this.routingnumtb.Size = new System.Drawing.Size(125, 20);
-            this.routingnumtb.TabIndex = 33;
+            this.routingnumtb.TabIndex = 99;
             // 
             // label15
             // 
@@ -499,16 +500,34 @@
             this.button4.Location = new System.Drawing.Point(724, 27);
             this.button4.Name = "button4";
             this.button4.Size = new System.Drawing.Size(102, 55);
-            this.button4.TabIndex = 35;
-            this.button4.Text = "Display Person Information";
+            this.button4.TabIndex = 3;
+            this.button4.Text = "Print Check";
             this.button4.UseVisualStyleBackColor = true;
             this.button4.Click += new System.EventHandler(this.button4_Click);
+            // 
+            // button5
+            // 
+            this.button5.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("button5.BackgroundImage")));
+            this.button5.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.button5.FlatAppearance.BorderColor = System.Drawing.SystemColors.ActiveCaption;
+            this.button5.FlatAppearance.BorderSize = 0;
+            this.button5.FlatAppearance.MouseDownBackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.button5.FlatAppearance.MouseOverBackColor = System.Drawing.SystemColors.ButtonFace;
+            this.button5.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button5.Location = new System.Drawing.Point(467, 16);
+            this.button5.Margin = new System.Windows.Forms.Padding(2);
+            this.button5.Name = "button5";
+            this.button5.Size = new System.Drawing.Size(65, 62);
+            this.button5.TabIndex = 36;
+            this.button5.UseVisualStyleBackColor = true;
+            this.button5.Click += new System.EventHandler(this.button5_Click);
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1076, 580);
+            this.Controls.Add(this.button5);
             this.Controls.Add(this.button4);
             this.Controls.Add(this.label16);
             this.Controls.Add(this.label15);
@@ -599,6 +618,7 @@
         private System.Windows.Forms.Label label15;
         private System.Windows.Forms.Label label16;
         private System.Windows.Forms.Button button4;
+        private System.Windows.Forms.Button button5;
     }
 }
 

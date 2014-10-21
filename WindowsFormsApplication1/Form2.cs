@@ -20,6 +20,7 @@ namespace WindowsFormsApplication1
 
         private void Form2_Load(object sender, EventArgs e)
         {
+            button1.Anchor =AnchorStyles.Right | AnchorStyles.Bottom;
             richTextBox1.Anchor = AnchorStyles.Left | AnchorStyles.Right | AnchorStyles.Top | AnchorStyles.Bottom;
         }
 
@@ -40,7 +41,7 @@ namespace WindowsFormsApplication1
         public void showrtb(taxes[] source)
         {
             string temp = "";
-            richTextBox1.Text = "\t" + choice + "\t" + kind + "\n\n";
+            richTextBox1.Text = "\t" + choice + "\t" + kind + "\n";
             int i =0;
             while(source[i] != null)
             {
@@ -57,26 +58,15 @@ namespace WindowsFormsApplication1
             this.Text = "Benefit List";
             label1.Text = "Benefit List";
             choice = "Benefit\t";
-            value = "%";
+            value = "   %";
             kind = "Percentage";
             showrtb(source);
-            this.ClientSize = new System.Drawing.Size(250, 330);
-            this.richTextBox1.Size = new System.Drawing.Size(226, 226);
-            this.button1.Location = new System.Drawing.Point(117, 290);
+            button1.Anchor = AnchorStyles.Right | AnchorStyles.Bottom;
+            richTextBox1.Anchor = AnchorStyles.Left | AnchorStyles.Right | AnchorStyles.Top | AnchorStyles.Bottom;
+            this.ClientSize = new System.Drawing.Size(350, 350);
+            //this.richTextBox1.Size = new System.Drawing.Size(226, 226);
+            //this.button1.Location = new System.Drawing.Point(117, 290);
         }
-
-        /*public void shownetpay(taxes[] source)
-        {
-            this.Text = "Benefit List";
-            label1.Text = "Benefit List";
-            choice = "Benefit\t";
-            value = "%";
-            kind = "Percentage";
-            showrtb(source);
-            this.ClientSize = new System.Drawing.Size(250, 330);
-            this.richTextBox1.Size = new System.Drawing.Size(226, 226);
-            this.button1.Location = new System.Drawing.Point(117, 290);
-        }*/
 
         private void button1_Click(object sender, EventArgs e)
         {

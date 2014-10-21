@@ -34,9 +34,48 @@ namespace WindowsFormsApplication1
         private void Form1_Load(object sender, EventArgs e)
         {
             this.FormBorderStyle = FormBorderStyle.FixedSingle;
+            this.button5.Location = new System.Drawing.Point(this.Size.Width/2, 20);
             data = new plist();
-            MessageBox.Show("Please select the data files that you wish to use. Select the data files in this order: Payroll Database, State Tax Database, and Benefit Database. The default values are the files listed in the program's directory.", "INFO");
+            MessageBox.Show("Please select the data files that you wish to use (*.txt). \nThe default values are the files listed in the program's directory.", "INFO");
             DialogResult result;
+            try
+            {
+                input = new FileStream(@System.IO.Directory.GetCurrentDirectory() + @"\taxdata\statetax.DAT", FileMode.Open, FileAccess.Read);
+                fileReader = new StreamReader(input);
+                int n = 0;
+                string[] taxstemp = new string[3];
+                while (fileReader.Peek() >= 0)
+                {
+                    taxstemp = fileReader.ReadLine().Split('\t');
+                    states[n] = new taxes();
+                    states[n].input(taxstemp);
+                    n++;
+                }
+                input.Close();
+            }
+            catch (IOException)
+            {
+                MessageBox.Show("Error \"statetax.DAT\" reading file");
+            }
+            try
+            {
+                input = new FileStream(@System.IO.Directory.GetCurrentDirectory() + @"\taxdata\benefit.DAT", FileMode.Open, FileAccess.Read);
+                fileReader = new StreamReader(input);
+                int n = 0;
+                string[] taxstemp = new string[2];
+                while (fileReader.Peek() >= 0)
+                {
+                    taxstemp = fileReader.ReadLine().Split('\t');
+                    benefits[n] = new taxes();
+                    benefits[n].input(taxstemp);
+                    n++;
+                }
+                input.Close();
+            }
+            catch (IOException)
+            {
+                MessageBox.Show("Error \"benefit.DAT\" reading file");
+            }
             using (OpenFileDialog fileChooser = new OpenFileDialog())
             {
                 fileChooser.FileName = "payrolldb.txt";
@@ -45,6 +84,7 @@ namespace WindowsFormsApplication1
             }
             if (result == DialogResult.OK)
             {
+
                 try
                 {
 
@@ -54,7 +94,7 @@ namespace WindowsFormsApplication1
                     while (fileReader.Peek() >= 0)
                     {
                         info = fileReader.ReadLine().Split('\t');
-                        data.input(info, states, benefits);
+                        data.input(info,states,benefits);
                     }
                     richTextBox1.Text = data.display();
                     linkLabel1.Text = fileName;
@@ -66,66 +106,7 @@ namespace WindowsFormsApplication1
                     MessageBox.Show("Error reading file");
                 }
             }
-            using (OpenFileDialog fileChooser = new OpenFileDialog())
-            {
-                fileChooser.FileName = "statetax.txt";
-                result = fileChooser.ShowDialog();
-                fileName = fileChooser.FileName;
-            }
-            if (result == DialogResult.OK)
-            {
 
-                try
-                {
-
-                    input = new FileStream(fileName, FileMode.Open, FileAccess.Read);
-                    fileReader = new StreamReader(input);
-                    int n = 0;
-                    string[] taxstemp = new string[3];
-                    while (fileReader.Peek() >= 0)
-                    {
-                        taxstemp = fileReader.ReadLine().Split('\t');
-                        states[n] = new taxes();
-                        states[n].input(taxstemp);
-                        n++;
-                    }
-                    input.Close();
-                }
-                catch (IOException)
-                {
-                    MessageBox.Show("Error \"statetax.txt\" reading file");
-                }
-            }
-            using (OpenFileDialog fileChooser = new OpenFileDialog())
-            {
-                fileChooser.FileName = "benefit.txt";
-                result = fileChooser.ShowDialog();
-                fileName = fileChooser.FileName;
-            }
-            if (result == DialogResult.OK)
-            {
-
-                try
-                {
-
-                    input = new FileStream(fileName, FileMode.Open, FileAccess.Read);
-                    fileReader = new StreamReader(input);
-                    int n = 0;
-                    string[] taxstemp = new string[2];
-                    while (fileReader.Peek() >= 0)
-                    {
-                        taxstemp = fileReader.ReadLine().Split('\t');
-                        benefits[n] = new taxes();
-                        benefits[n].input(taxstemp);
-                        n++;
-                    }
-                    input.Close();
-                }
-                catch (IOException)
-                {
-                    MessageBox.Show("Error \"benefit.txt\" reading file");
-                }
-            }            
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -198,7 +179,7 @@ namespace WindowsFormsApplication1
                 button4.Enabled = false;
                 modify.Enabled = false;
                 delete.Enabled = false;
-                button4.Text = "Print check";
+                button4.Text = "Print Check";
             }
         }
 
@@ -505,6 +486,12 @@ namespace WindowsFormsApplication1
             }
         }
 
+        private void button5_Click(object sender, EventArgs e)
+        {
+            AboutWindow aboutform = new AboutWindow();
+            aboutform.Show();
+        }
+
 
 
     }
@@ -769,7 +756,7 @@ namespace linkedlist
                 //default: temp = "";
             }
             if (temp == "")
-                temp = "No result for your search.";
+                temp = "!No result for your search.";
             else
                 temp = String.Format("{0,12:D}{1,13:D}{2,16:D}{3,7:D}{4,15:D}{5,15:D}{6,15:D}{7,15:D}{8,10:D}{9,18:D}", "ID", "Last Name", "First Name", "State", "Benefit", "Tax", "Gross Income", "Net Pay","Check", "Account Number\n\n") + temp;
             return temp;
