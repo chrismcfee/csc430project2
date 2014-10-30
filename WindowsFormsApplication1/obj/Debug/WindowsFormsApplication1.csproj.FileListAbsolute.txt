@@ -53,3 +53,5 @@ C:\Users\ManhTuan\Dropbox\lab\Group5-PayrollApp\WindowsFormsApplication1\obj\Deb
 C:\Users\CharleneX\Dropbox\lab\Group5-PayrollApp\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.AboutWindow.resources
 C:\Users\Christopher\Documents\Visual Studio 2013\Projects\csc430project2\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.exe
 C:\Users\Christopher\Documents\Visual Studio 2013\Projects\csc430project2\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.pdb
+C:\Users\Michael.Tighe\Desktop\csc430project2\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.exe
+C:\Users\Michael.Tighe\Desktop\csc430project2\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.pdb
