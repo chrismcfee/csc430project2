@@ -1,0 +1,101 @@
+Blue Cross
+    
+    Indiviual
+        HMO 350.00
+        PPO 400.00
+        Regular 331.00
+    
+    Group
+        HMO 700.00
+        PPO 800.00
+        Regular 662.00
+
+Aetna
+
+     Indiviual
+        Silver 420.00
+        Gold 475.00
+        Bronze 400.00
+        Platinum 500.00
+    
+    Group
+        Silver 940.00
+        Gold 980.00
+        Bronze 910.00
+        Platinum 1025.00
+
+HIP
+
+Indiviual
+        Gold 600.00
+        Silver 458.33
+        Bronze 250.00
+    
+    Group
+        Gold 1800.00
+        Silver 2000.00
+        Bronze 1600.00
+
+Cigna
+
+Indiviual
+        HMO 900.00
+        PPO 1000.00
+        Regular 800.00
+    
+    Group
+        HMO 2000.00
+        PPO 2400.00
+        Regular 1600.00
+
+GHI
+
+    Indiviual
+        Bronze $250.00
+        Silver $
+        Gold
+    
+    Group
+        Bronze
+        Silver
+        Gold
+
+Medicare
+
+    Indiviual
+        HMO
+        PPO
+        Regular
+    
+    Group
+        HMO
+        PPO
+        Regular
+
+Medicaid
+
+    Indiviual
+        HMO
+        PPO
+        Regular
+    
+    Group
+        HMO
+        PPO
+        Regular
+
+
+
+Obamacare
+
+    Indiviual
+        HMO
+        PPO
+        Regular
+    
+    Group
+        HMO
+        PPO
+        Regular
+
+None
