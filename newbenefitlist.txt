@@ -1,3 +1,5 @@
+HEALTH
+
 Blue Cross
     
     Indiviual
@@ -91,5 +93,32 @@ None
     Indiviual
         None $0.00
 
+    Group
+        None $0.00
+
+DENTAL
+
+Horizon
+    
+    Indiviual
+        Cleaning every 12 months + EMERGENCIES $100.00
+        Cleaning every 6 months + EMERGENCIES $150.00
+    Group
+        Cleaning every 12 months + EMERGENCIES $400.00
+        Cleaning every 6 months + EMERGENCIES $600.00
+
+GHI 
+
+    Indiviual
+        Cleaning every 12 months + EMERGENCIES $200.00
+        Cleaning every 6 months + EMERGENCIES $300.00
+    Group
+        Cleaning every 12 months + EMERGENCIES $600.00
+        Cleaning every 6 months + EMERGENCIES $850.00
+
+None
+
+    Indiviual
+        None $0.00
     Group
         None $0.00
