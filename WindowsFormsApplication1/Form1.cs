@@ -492,6 +492,11 @@ namespace WindowsFormsApplication1
             aboutform.Show();
         }
 
+        private void label18_Click(object sender, EventArgs e)
+        {
+
+        }
+
 
 
     }
