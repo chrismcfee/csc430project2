@@ -52,50 +52,44 @@ GHI
 
     Indiviual
         Bronze $250.00
-        Silver $
-        Gold
+        Silver $350.00
+        Gold $450.00
     
     Group
-        Bronze
-        Silver
-        Gold
+        Bronze $550.00
+        Silver $670.00
+        Gold $810.00
 
 Medicare
 
     Indiviual
-        HMO
-        PPO
-        Regular
+        Regular $0.00
     
     Group
-        HMO
-        PPO
-        Regular
+        Regular $0.00
 
 Medicaid
 
     Indiviual
-        HMO
-        PPO
-        Regular
+        Medicaid $0.00
     
     Group
-        HMO
-        PPO
-        Regular
+        Medicaid $0.00
 
 
 
 Obamacare
 
     Indiviual
-        HMO
-        PPO
-        Regular
+        Regular $25.00
     
     Group
-        HMO
-        PPO
-        Regular
+        Regular $68.00
 
 None
+
+    Indiviual
+        None $0.00
+
+    Group
+        None $0.00
