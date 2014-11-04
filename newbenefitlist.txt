@@ -1,5 +1,6 @@
 HEALTH
 
+Premium = Platinum
 HMO = Silver
 PPO = Gold
 Regular = Bronze
@@ -10,7 +11,6 @@ Blue Cross
         Silver 350.00
         Gold 400.00
         Bronze 331.00
-    
     Group
         Silver 700.00
         Gold 800.00
@@ -23,7 +23,6 @@ Aetna
         Gold 475.00
         Bronze 400.00
         Platinum 500.00
-    
     Group
         Silver 940.00
         Gold 980.00
@@ -32,11 +31,10 @@ Aetna
 
 HIP
 
-Indiviual
+    Indiviual
         Gold 600.00
         Silver 458.33
         Bronze 250.00
-    
     Group
         Gold 1800.00
         Silver 2000.00
@@ -44,11 +42,10 @@ Indiviual
 
 Cigna
 
-Indiviual
+    Indiviual
         Silver 900.00
         Gold 1000.00
         Bronze 800.00
-    
     Group
         Silver 2000.00
         Gold 2400.00
@@ -60,7 +57,6 @@ GHI
         Bronze $250.00
         Silver $350.00
         Gold $450.00
-    
     Group
         Bronze $550.00
         Silver $670.00
@@ -70,7 +66,6 @@ Medicare
 
     Indiviual
         Bronze $0.00
-    
     Group
         Bronze $0.00
 
@@ -78,17 +73,13 @@ Medicaid
 
     Indiviual
         Bronze $0.00
-    
     Group
         Bronze $0.00
-
-
 
 Obamacare
 
     Indiviual
         Bronze $25.00
-    
     Group
         Bronze $68.00
 
@@ -96,7 +87,6 @@ None
 
     Indiviual
         Bronze $0.00
-
     Group
         Bronze $0.00
 
@@ -104,14 +94,25 @@ DENTAL
 
 Horizon
     
+    Indiviual
         Bronze $100.00
         Silver $150.00
+    Group
+        Bronze $300.00
+        Silver $450.00
 
 GHI 
 
+    Indiviual
         Bronze $200.00
         Silver $300.00
+    Group
+        Bronze $600.00
+        Silver $900.00
 
 None
-
+    
+    Indiviual
+        Bronze $0.00
+    Group
         Bronze $0.00
