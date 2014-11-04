@@ -1,4 +1,4 @@
-csc430project2
+Greenchecks
 ==============
 
 Payroll Management Software
@@ -21,3 +21,4 @@ This is just a simple C# GUI program to manage payrolls. The user can add, modif
 It also calculates different kinds of benefits and can print out a check for an employee.
 
 The database files are stored in plain text for right now, not SQL.
+
