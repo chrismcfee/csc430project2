@@ -1,16 +1,20 @@
 HEALTH
 
+HMO = Silver
+PPO = Gold
+Regular = Bronze
+
 Blue Cross
     
     Indiviual
-        HMO 350.00
-        PPO 400.00
-        Regular 331.00
+        Silver 350.00
+        Gold 400.00
+        Bronze 331.00
     
     Group
-        HMO 700.00
-        PPO 800.00
-        Regular 662.00
+        Silver 700.00
+        Gold 800.00
+        Bronze 662.00
 
 Aetna
 
@@ -41,14 +45,14 @@ Indiviual
 Cigna
 
 Indiviual
-        HMO 900.00
-        PPO 1000.00
-        Regular 800.00
+        Silver 900.00
+        Gold 1000.00
+        Bronze 800.00
     
     Group
-        HMO 2000.00
-        PPO 2400.00
-        Regular 1600.00
+        Silver 2000.00
+        Gold 2400.00
+        Bronze 1600.00
 
 GHI
 
@@ -65,49 +69,49 @@ GHI
 Medicare
 
     Indiviual
-        Regular $0.00
+        Bronze $0.00
     
     Group
-        Regular $0.00
+        Bronze $0.00
 
 Medicaid
 
     Indiviual
-        Medicaid $0.00
+        Bronze $0.00
     
     Group
-        Medicaid $0.00
+        Bronze $0.00
 
 
 
 Obamacare
 
     Indiviual
-        Regular $25.00
+        Bronze $25.00
     
     Group
-        Regular $68.00
+        Bronze $68.00
 
 None
 
     Indiviual
-        None $0.00
+        Bronze $0.00
 
     Group
-        None $0.00
+        Bronze $0.00
 
 DENTAL
 
 Horizon
     
-        Cleaning every 12 months + EMERGENCIES $100.00
-        Cleaning every 6 months + EMERGENCIES $150.00
+        Bronze $100.00
+        Silver $150.00
 
 GHI 
 
-        Cleaning every 12 months + EMERGENCIES $200.00
-        Cleaning every 6 months + EMERGENCIES $300.00
+        Bronze $200.00
+        Silver $300.00
 
 None
 
-        None $0.00
+        Bronze $0.00
