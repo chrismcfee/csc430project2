@@ -79,6 +79,8 @@
             this.comboBox6 = new System.Windows.Forms.ComboBox();
             this.label3 = new System.Windows.Forms.Label();
             this.comboBox7 = new System.Windows.Forms.ComboBox();
+            this.checkBox2 = new System.Windows.Forms.CheckBox();
+            this.checkBox3 = new System.Windows.Forms.CheckBox();
             this.SuspendLayout();
             // 
             // button1
@@ -598,11 +600,33 @@
             this.comboBox7.Size = new System.Drawing.Size(151, 21);
             this.comboBox7.TabIndex = 109;
             // 
+            // checkBox2
+            // 
+            this.checkBox2.AutoSize = true;
+            this.checkBox2.Location = new System.Drawing.Point(520, 562);
+            this.checkBox2.Name = "checkBox2";
+            this.checkBox2.Size = new System.Drawing.Size(115, 17);
+            this.checkBox2.TabIndex = 110;
+            this.checkBox2.Text = "Single Benefit Plan";
+            this.checkBox2.UseVisualStyleBackColor = true;
+            // 
+            // checkBox3
+            // 
+            this.checkBox3.AutoSize = true;
+            this.checkBox3.Location = new System.Drawing.Point(663, 562);
+            this.checkBox3.Name = "checkBox3";
+            this.checkBox3.Size = new System.Drawing.Size(122, 17);
+            this.checkBox3.TabIndex = 111;
+            this.checkBox3.Text = "Multiple Benefit Plan";
+            this.checkBox3.UseVisualStyleBackColor = true;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1076, 613);
+            this.Controls.Add(this.checkBox3);
+            this.Controls.Add(this.checkBox2);
             this.Controls.Add(this.comboBox7);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.comboBox6);
@@ -711,6 +735,8 @@
         private System.Windows.Forms.ComboBox comboBox6;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.ComboBox comboBox7;
+        private System.Windows.Forms.CheckBox checkBox2;
+        private System.Windows.Forms.CheckBox checkBox3;
     }
 }
 
