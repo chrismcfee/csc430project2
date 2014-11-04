@@ -1,7 +1,7 @@
 csc430project2
 ==============
 
-A user-defined program to manage a payroll database
+Payroll Management Software
 
 Dependencies:
 
@@ -14,8 +14,10 @@ Latest version of .NET installed
 
 _______________________________________________________________________
 
-See the PayrollDocumentation.odt file for this project's documentation.
+All documentation included in docs folder
 
 This is just a simple C# GUI program to manage payrolls. The user can add, modify, delete, and search employee data using this application.
 
-Output is just stored to a text file for now (possible implementation of SQL to be used in the future).
+It also calculates different kinds of benefits and can print out a check for an employee.
+
+The database files are stored in plain text for right now, not SQL.
