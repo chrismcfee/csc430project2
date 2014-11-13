@@ -71,6 +71,8 @@
             this.label16 = new System.Windows.Forms.Label();
             this.button4 = new System.Windows.Forms.Button();
             this.button5 = new System.Windows.Forms.Button();
+            this.label17 = new System.Windows.Forms.Label();
+            this.textBox8 = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
             // button1
@@ -361,7 +363,7 @@
             // label13
             // 
             this.label13.AutoSize = true;
-            this.label13.Location = new System.Drawing.Point(258, 556);
+            this.label13.Location = new System.Drawing.Point(258, 557);
             this.label13.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label13.Name = "label13";
             this.label13.Size = new System.Drawing.Size(38, 13);
@@ -439,7 +441,7 @@
             // 
             // button2
             // 
-            this.button2.Location = new System.Drawing.Point(754, 471);
+            this.button2.Location = new System.Drawing.Point(754, 479);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(128, 29);
             this.button2.TabIndex = 30;
@@ -449,7 +451,7 @@
             // 
             // button3
             // 
-            this.button3.Location = new System.Drawing.Point(754, 505);
+            this.button3.Location = new System.Drawing.Point(754, 519);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(128, 29);
             this.button3.TabIndex = 31;
@@ -522,11 +524,30 @@
             this.button5.UseVisualStyleBackColor = true;
             this.button5.Click += new System.EventHandler(this.button5_Click);
             // 
+            // label17
+            // 
+            this.label17.AutoSize = true;
+            this.label17.Location = new System.Drawing.Point(26, 558);
+            this.label17.Name = "label17";
+            this.label17.Size = new System.Drawing.Size(62, 13);
+            this.label17.TabIndex = 100;
+            this.label17.Text = "Dental Plan";
+            this.label17.Click += new System.EventHandler(this.label17_Click);
+            // 
+            // textBox8
+            // 
+            this.textBox8.Location = new System.Drawing.Point(97, 558);
+            this.textBox8.Name = "textBox8";
+            this.textBox8.Size = new System.Drawing.Size(145, 20);
+            this.textBox8.TabIndex = 101;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1076, 591);
+            this.Controls.Add(this.textBox8);
+            this.Controls.Add(this.label17);
             this.Controls.Add(this.button5);
             this.Controls.Add(this.button4);
             this.Controls.Add(this.label16);
@@ -620,6 +641,8 @@
         private System.Windows.Forms.Label label16;
         private System.Windows.Forms.Button button4;
         private System.Windows.Forms.Button button5;
+        private System.Windows.Forms.Label label17;
+        private System.Windows.Forms.TextBox textBox8;
     }
 }
 

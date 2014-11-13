@@ -587,6 +587,11 @@ namespace WindowsFormsApplication1
             
         }
 
+        private void label17_Click(object sender, EventArgs e)
+        {
+
+        }
+
 
 
     }
@@ -909,7 +914,7 @@ namespace pinfo
             check = source[6];
             state = source[7];
             accnum = source[8];
-            dental = source[9];
+            //dental = source[9];
             int i = 0;
             while (states[i] != null)
             {
@@ -988,6 +993,7 @@ namespace benefitdatabase
             brand = source[1];
             type = source[2];
             level = source[3];
+            //dental = source[9];
             value = Convert.ToDouble(source[4]);
         }
 
