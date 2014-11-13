@@ -1,2 +1,4 @@
-*.exe
-*.pdb
+WindowsFormsApplication1/bin/Debug/WindowsFormsApplication1.exe
+WindowsFormsApplication1/bin/Debug/WindowsFormsApplication1.pdb
+WindowsFormsApplication1/obj/Debug/WindowsFormsApplication1.exe
+WindowsFormsApplication1/obj/Debug/WindowsFormsApplication1.pdb
