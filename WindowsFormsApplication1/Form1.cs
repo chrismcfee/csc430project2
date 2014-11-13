@@ -7,12 +7,13 @@ using System.Linq;
 using System.Text;
 using System.Windows.Forms;
 using System.IO;
-//random comment
+
 namespace WindowsFormsApplication1
 {
     using pinfo;
     using linkedlist;
     using taxdata;
+    using benefitdatabase;
 
     public partial class Form1 : Form
     {
@@ -20,10 +21,11 @@ namespace WindowsFormsApplication1
         private StreamReader fileReader;
         string fileName;
         private plist data;
-        int schoice = 6;
-        bool changed = false;
+        int schoice = 6, trash = 0;
+        bool changed = false, ismaximized = false;
         pnode ntemp;
         public taxes[] states = new taxes[100], benefits = new taxes[100];
+        benefitdata databenefit = new benefitdata(), datadental = new benefitdata();
         Form2 statetaxform, benefitform;
         CheckWindow checkform;
         public Form1()
@@ -35,9 +37,85 @@ namespace WindowsFormsApplication1
         {
             this.FormBorderStyle = FormBorderStyle.FixedSingle;
             this.button5.Location = new System.Drawing.Point(this.Size.Width/2, 20);
+            richTextBox1.Anchor = AnchorStyles.Left | AnchorStyles.Right | AnchorStyles.Top | AnchorStyles.Bottom;
+            label10.Anchor = AnchorStyles.Bottom;
+            textBox2.Anchor = AnchorStyles.Bottom;
+            textBox3.Anchor = AnchorStyles.Bottom;
+            textBox4.Anchor = AnchorStyles.Bottom;
+            textBox5.Anchor = AnchorStyles.Bottom;
+            textBox6.Anchor = AnchorStyles.Bottom;
+            textBox7.Anchor = AnchorStyles.Bottom;
+            accountnumtb.Anchor = AnchorStyles.Bottom;
+            comboBox2.Anchor = AnchorStyles.Bottom;
+            routingnumtb.Anchor = AnchorStyles.Bottom;
+            label1.Anchor = AnchorStyles.Bottom;
+            label2.Anchor = AnchorStyles.Bottom;
+            label3.Anchor = AnchorStyles.Bottom;
+            label4.Anchor = AnchorStyles.Bottom;
+            label5.Anchor = AnchorStyles.Bottom;
+            label12.Anchor = AnchorStyles.Bottom;
+            label13.Anchor = AnchorStyles.Bottom;
+            label14.Anchor = AnchorStyles.Bottom;
+            label15.Anchor = AnchorStyles.Bottom;
+            label16.Anchor = AnchorStyles.Bottom;
+            checkBox1.Anchor = AnchorStyles.Bottom;
+            button1.Anchor = AnchorStyles.Bottom;
+            button2.Anchor = AnchorStyles.Bottom;
+            button3.Anchor = AnchorStyles.Bottom;
+            save.Anchor = AnchorStyles.Bottom;
+            cancel.Anchor = AnchorStyles.Bottom;
+            label6.Anchor = AnchorStyles.Right | AnchorStyles.Top;
+            label7.Anchor = AnchorStyles.Right | AnchorStyles.Top;
+            modify.Anchor = AnchorStyles.Right | AnchorStyles.Top;
+            delete.Anchor = AnchorStyles.Right | AnchorStyles.Top;
+            button4.Anchor = AnchorStyles.Right | AnchorStyles.Top;
+
             data = new plist();
             MessageBox.Show("Please select the data files that you wish to use (*.txt). \nThe default values are the files listed in the program's directory.", "INFO");
             DialogResult result;
+
+            //reading dental plan data
+            try
+            {
+                input = new FileStream(@System.IO.Directory.GetCurrentDirectory() + @"\taxdata\dentalplandata.DAT", FileMode.Open, FileAccess.Read);
+                fileReader = new StreamReader(input);
+                int n = 0;
+                string[] taxstemp = new string[5];
+                while (fileReader.Peek() >= 0)
+                {
+                    taxstemp = fileReader.ReadLine().Split('\t');
+                    datadental.input(taxstemp);
+                    n++;
+                }
+                input.Close();
+            }
+            catch (IOException)
+            {
+                MessageBox.Show("Error \"dentalplandata.DAT\" reading file");
+            }
+            //reading benefit data
+            try
+            {
+                input = new FileStream(@System.IO.Directory.GetCurrentDirectory() + @"\taxdata\benefitdata.DAT", FileMode.Open, FileAccess.Read);
+                fileReader = new StreamReader(input);
+                int n = 0;
+                string[] taxstemp = new string[5];
+                while (fileReader.Peek() >= 0)
+                {
+                    taxstemp = fileReader.ReadLine().Split('\t');
+                    databenefit.input(taxstemp);
+                    n++;
+
+                }
+                input.Close();
+            }
+            catch (IOException)
+            {
+                MessageBox.Show("Error \"benefitdata.DAT\" reading file");
+            }
+
+
+            //reading taxes data
             try
             {
                 input = new FileStream(@System.IO.Directory.GetCurrentDirectory() + @"\taxdata\statetax.DAT", FileMode.Open, FileAccess.Read);
@@ -57,6 +135,8 @@ namespace WindowsFormsApplication1
             {
                 MessageBox.Show("Error \"statetax.DAT\" reading file");
             }
+
+            //reading benefit(old)
             try
             {
                 input = new FileStream(@System.IO.Directory.GetCurrentDirectory() + @"\taxdata\benefit.DAT", FileMode.Open, FileAccess.Read);
@@ -82,6 +162,8 @@ namespace WindowsFormsApplication1
                 result = fileChooser.ShowDialog();
                 fileName = fileChooser.FileName;
             }
+
+            //reading people data
             if (result == DialogResult.OK)
             {
 
@@ -94,9 +176,9 @@ namespace WindowsFormsApplication1
                     while (fileReader.Peek() >= 0)
                     {
                         info = fileReader.ReadLine().Split('\t');
-                        data.input(info,states,benefits);
+                        data.input(info,states,benefits,databenefit,datadental);
                     }
-                    richTextBox1.Text = data.display();
+                    richTextBox1.Text = data.display(ismaximized);
                     linkLabel1.Text = fileName;
                     saveFileDialog1.FileName = fileName;
                     input.Close();
@@ -141,7 +223,7 @@ namespace WindowsFormsApplication1
                 else
                     temp[7] = comboBox2.Text;
                 temp[8] = accountnumtb.Text;
-                data.input(temp, states, benefits);
+                data.input(temp, states, benefits,databenefit,datadental);
                 searchtb1();
                 cleartb();
                 changed = true;
@@ -152,13 +234,13 @@ namespace WindowsFormsApplication1
         {
             if (textBox1.Text == "")
             {
-                richTextBox1.Text = data.display();
+                richTextBox1.Text = data.display(ismaximized);
                 modifycheck(richTextBox1.Text.Split('\n').Length);
             }
             else
             {
                 string temp = "";
-                temp = data.search(textBox1.Text.ToUpper(), schoice);
+                temp = data.search(textBox1.Text.ToUpper(), schoice,ismaximized);
                 richTextBox1.Text = temp;
                 modifycheck(temp.Split('\n').Length);
             }
@@ -492,9 +574,17 @@ namespace WindowsFormsApplication1
             aboutform.Show();
         }
 
-        private void label18_Click(object sender, EventArgs e)
+        private void Form1_Resize(object sender, EventArgs e)
         {
-
+            trash++;
+            if(this.WindowState == FormWindowState.Maximized)
+                ismaximized = true;
+            if(this.WindowState == FormWindowState.Normal)
+                ismaximized = false;
+            this.button5.Location = new System.Drawing.Point(this.Size.Width / 2, 20);
+            if (trash > 2)
+                searchtb1();
+            
         }
 
 
@@ -507,6 +597,7 @@ namespace linkedlist
 {
     using pinfo;
     using taxdata;
+    using benefitdatabase;
 
     public class pnode
     {
@@ -522,14 +613,14 @@ namespace linkedlist
         {
             return (head == null);
         }
-        public void input(string[] info, taxes[] states, taxes[] benefits)
+        public void input(string[] info, taxes[] states, taxes[] benefits, benefitdata databenefit, benefitdata datadental)
         {
             if (isEmpty())
             {
                 head = new pnode();
                 head.data = new person();
                 head.next = null;
-                head.data.input(info,states,benefits);
+                head.data.input(info,states,benefits, databenefit, datadental);
                 noe++;
             }
             else
@@ -539,7 +630,7 @@ namespace linkedlist
                 temp = findnode(noe).next;
                 temp.next = null;
                 temp.data = new person();
-                temp.data.input(info,states,benefits);
+                temp.data.input(info, states, benefits, databenefit, datadental);
                 noe++;
             }
             
@@ -553,16 +644,20 @@ namespace linkedlist
         public int getnoe()
         { return noe; }
 
-        public string display()
+        public string display(bool ismaximized)
         {
             string temp = "";
             pnode tempnode = head;
             if (isEmpty())
                 return "The list contains NOTHING!";
-            temp = temp + String.Format("{0,12:D}{1,13:D}{2,16:D}{3,7:D}{4,15:D}{5,15:D}{6,15:D}{7,15:D}{8,10:D}{9,18:D}", "ID", "Last Name", "First Name", "State", "Benefit", "Tax", "Gross Income", "Net Pay", "Check", "Account Number\n\n");
+            if (ismaximized)
+                temp = temp + String.Format("{0,12:D}{1,13:D}{2,16:D}{3,7:D}{4,15:D}{5,15:D}{6,15:D}{7,15:D}{8,15:D}{9,15:D}{10,15:D}{11,15:D}{12,15:D}{13,8:D}{14,20:D}", "ID", "Last Name", "First Name", "State", "Benefit Brand", "Level", "Type", "Dental Brand", "Level", "Type", "Tax", "Gross Income", "Net Pay", "Check", "Account Number\n\n");
+            else
+                temp = temp + String.Format("{0,12:D}{1,13:D}{2,16:D}{3,7:D}{4,15:D}{5,15:D}{6,15:D}{7,15:D}{8,8:D}{9,20:D}", "ID", "Last Name", "First Name", "State", "Benefit", "Tax", "Gross Income", "Net Pay", "Check", "Account Number\n\n");
+            //temp = temp + String.Format("{0,12:D}{1,13:D}{2,16:D}{3,7:D}{4,15:D}{5,15:D}{6,15:D}{7,15:D}{8,10:D}{9,18:D}", "ID", "Last Name", "First Name", "State", "Benefit", "Tax", "Gross Income", "Net Pay", "Check", "Account Number\n\n");
             for (int i = 0; i < noe; i++)
             {
-                temp = temp + tempnode.data.getInfo() + "\n";
+                temp = temp + tempnode.data.getInfo(ismaximized) + "\n";
                 tempnode = tempnode.next;
             }
             return temp;
@@ -678,7 +773,7 @@ namespace linkedlist
             return i;
         }
 
-        public string search(string word, int choice)
+        public string search(string word, int choice,bool ismaximized)
         {
             string temp = "";
             pnode tempnode = head;
@@ -690,7 +785,7 @@ namespace linkedlist
                     for (int i = 0; i < noe; i++)
                     {
                         if (tempnode.data.lastname.Contains(word))
-                            temp = temp + tempnode.data.getInfo() + "\n";
+                            temp = temp + tempnode.data.getInfo(ismaximized)+ "\n";
                         tempnode = tempnode.next;
                     }
                     break;
@@ -698,7 +793,7 @@ namespace linkedlist
                     for (int i = 0; i < noe; i++)
                     {
                         if (tempnode.data.firstname.Contains(word))
-                            temp = temp + tempnode.data.getInfo() + "\n";
+                            temp = temp + tempnode.data.getInfo(ismaximized) + "\n";
                         tempnode = tempnode.next;
                     }
                     break;
@@ -706,7 +801,7 @@ namespace linkedlist
                     for (int i = 0; i < noe; i++)
                     {
                         if (tempnode.data.benefit.Contains(word))
-                            temp = temp + tempnode.data.getInfo() + "\n";
+                            temp = temp + tempnode.data.getInfo(ismaximized) + "\n";
                         tempnode = tempnode.next;
                     }
                     break;
@@ -714,7 +809,7 @@ namespace linkedlist
                     for (int i = 0; i < noe; i++)
                     {
                         if (tempnode.data.tax == Convert.ToDouble(word))
-                            temp = temp + tempnode.data.getInfo() + "\n";
+                            temp = temp + tempnode.data.getInfo(ismaximized) + "\n";
                         tempnode = tempnode.next;
                     }
                     break;
@@ -722,7 +817,7 @@ namespace linkedlist
                     for (int i = 0; i < noe; i++)
                     {
                         if (tempnode.data.gincome == Convert.ToDouble(word))
-                            temp = temp + tempnode.data.getInfo() + "\n";
+                            temp = temp + tempnode.data.getInfo(ismaximized) + "\n";
                         tempnode = tempnode.next;
                     }
                     break;
@@ -730,7 +825,7 @@ namespace linkedlist
                     for (int i = 0; i < noe; i++)
                     {
                         if (tempnode.data.npay == Convert.ToDouble(word))
-                            temp = temp + tempnode.data.getInfo() + "\n";
+                            temp = temp + tempnode.data.getInfo(ismaximized) + "\n";
                         tempnode = tempnode.next;
                     }
                     break;
@@ -738,7 +833,7 @@ namespace linkedlist
                     for (int i = 0; i < noe; i++)
                     {
                         if (tempnode.data.id.Contains(word))
-                            temp = temp + tempnode.data.getInfo() + "\n";
+                            temp = temp + tempnode.data.getInfo(ismaximized) + "\n";
                         tempnode = tempnode.next;
                     }
                     break;
@@ -746,7 +841,7 @@ namespace linkedlist
                     for (int i = 0; i < noe; i++)
                     {
                         if (tempnode.data.check.Contains(word))
-                            temp = temp + tempnode.data.getInfo() + "\n";
+                            temp = temp + tempnode.data.getInfo(ismaximized) + "\n";
                         tempnode = tempnode.next;
                     }
                     break;
@@ -754,7 +849,7 @@ namespace linkedlist
                     for (int i = 0; i < noe; i++)
                     {
                         if (tempnode.data.state.Contains(word))
-                            temp = temp + tempnode.data.getInfo() + "\n";
+                            temp = temp + tempnode.data.getInfo(ismaximized) + "\n";
                         tempnode = tempnode.next;
                     }
                     break;
@@ -763,7 +858,10 @@ namespace linkedlist
             if (temp == "")
                 temp = "!No result for your search.";
             else
-                temp = String.Format("{0,12:D}{1,13:D}{2,16:D}{3,7:D}{4,15:D}{5,15:D}{6,15:D}{7,15:D}{8,10:D}{9,18:D}", "ID", "Last Name", "First Name", "State", "Benefit", "Tax", "Gross Income", "Net Pay","Check", "Account Number\n\n") + temp;
+                if (ismaximized)
+                temp = String.Format("{0,12:D}{1,13:D}{2,16:D}{3,7:D}{4,15:D}{5,15:D}{6,15:D}{7,15:D}{8,15:D}{9,15:D}{10,15:D}{11,15:D}{12,15:D}{13,8:D}{14,20:D}", "ID", "Last Name", "First Name", "State", "Benefit Brand", "Level", "Type", "Dental Brand", "Level", "Type", "Tax", "Gross Income", "Net Pay", "Check", "Account Number\n\n") + temp;
+            else
+                temp = String.Format("{0,12:D}{1,13:D}{2,16:D}{3,7:D}{4,15:D}{5,15:D}{6,15:D}{7,15:D}{8,8:D}{9,20:D}", "ID", "Last Name", "First Name", "State", "Benefit", "Tax", "Gross Income", "Net Pay", "Check", "Account Number\n\n") + temp;
             return temp;
         }
 
@@ -790,13 +888,17 @@ namespace linkedlist
 namespace pinfo
 {
     using taxdata;
+    using benefitdatabase;
 
+    //PERSON DETAILS
     public class person
     {
         //private static date dob = new date();
-        public string id = "",lastname = "",firstname = "", benefit = "", check = "", state = "", accnum = "";
+        public string id = "",lastname = "",firstname = "", benefit = "", check = "";
+        public string state = "", accnum = "", dental = "";
         public double tax, gincome, npay, stax,btax;
-        public void input(string[] source, taxes[] states, taxes[] benefits)
+        benefitvalue benefitdetail = new benefitvalue(), dentaldetail = new benefitvalue();
+        public void input(string[] source, taxes[] states, taxes[] benefits, benefitdata benefitsource, benefitdata dentalsource)
         {
             id = source[0];
             lastname = source[1];
@@ -807,6 +909,7 @@ namespace pinfo
             check = source[6];
             state = source[7];
             accnum = source[8];
+            dental = source[9];
             int i = 0;
             while (states[i] != null)
             {
@@ -818,6 +921,10 @@ namespace pinfo
                 i++;
             }
 
+            benefitdetail.copy(benefitsource.output(benefit));
+            dentaldetail.copy(dentalsource.output(dental));
+
+            //old benefit still here
             i = 0;
             while (benefits[i] != null)
             {
@@ -828,20 +935,25 @@ namespace pinfo
                 }
                 i++;
             }
+
+            //NETPAY calculation update needed
             npay = (gincome - stax - tax) - (gincome*btax/100);
         }
         public int getid()
         {
             return Convert.ToInt32(id);
         }
-        public string getInfo()
+        public string getInfo(bool ismaximized)
         {
-            return (String.Format("{0,12:D}{1,13:D}{2,16:D}{3,7:D}{4,15:D}{5,15:D}{6,15:D}{7,15:D}{8,8:D}{9,18:D}", id, lastname, firstname, state, benefit, tax.ToString(), gincome.ToString(), npay.ToString(), check, accnum));
+            if(ismaximized)
+                return (String.Format("{0,12:D}{1,13:D}{2,16:D}{3,7:D}{4,15:D}{5,15:D}{6,15:D}{7,15:D}{8,15:D}{9,15:D}{10,15:D}{11,15:D}{12,15:D}{13,8:D}{14,18:D}", id, lastname, firstname, state, benefitdetail.brand, benefitdetail.level, benefitdetail.type, dentaldetail.brand, dentaldetail.level, dentaldetail.type, tax.ToString(), gincome.ToString(), npay.ToString(), check, accnum));
+            else
+                return (String.Format("{0,12:D}{1,13:D}{2,16:D}{3,7:D}{4,15:D}{5,15:D}{6,15:D}{7,15:D}{8,8:D}{9,18:D}", id, lastname, firstname, state, benefit, tax.ToString(), gincome.ToString(), npay.ToString(), check, accnum));
         }
 
         public string output()
         {
-            return id + "\t" + lastname + "\t" + firstname + "\t" + benefit + "\t" + tax.ToString() + "\t" + gincome.ToString() + "\t" + check + "\t" + state + "\t" + accnum;
+            return id + "\t" + lastname + "\t" + firstname + "\t" + benefit + "\t" + tax.ToString() + "\t" + gincome.ToString() + "\t" + check + "\t" + state + "\t" + accnum + "\t" + dental;
         }
     }
 }
@@ -861,3 +973,83 @@ namespace taxdata
         }
     }
 }
+
+
+//DATABASE FOR BENEFIT
+namespace benefitdatabase
+{
+    public class benefitvalue
+    {
+        public string code = "NOVALUE", brand = "NA", type = "NA", level = "NA";
+        public double value = 0;
+        public void input(string[] source)
+        {
+            code = source[0];
+            brand = source[1];
+            type = source[2];
+            level = source[3];
+            value = Convert.ToDouble(source[4]);
+        }
+
+        public void copy(benefitvalue source)
+        {
+            code = source.code;
+            brand = source.brand;
+            type = source.type;
+            level = source.level;
+            value = source.value;
+        }
+    }
+
+    public class benefitdata
+    {
+        public benefitvalue[] data = new benefitvalue[200];
+        private int noe = 0;
+
+        public string codeoutput(string sbrand, string stype, string slevel)
+        {
+            for (int i = 0; i < noe; i++)
+                if (data[i].brand == sbrand && data[i].type == stype && data[i].level == slevel)
+                    return data[i].code;
+            return "NOVALUE";
+        }
+
+        public double valueoutput(string scode)
+        {
+            for (int i = 0; i < noe; i++)
+                if (data[i].code == scode)
+                    return data[i].value;
+            return 0;
+        }
+
+        public void input(string[] source)
+        {
+            data[noe] = new benefitvalue();
+            data[noe].input(source);
+            noe++;
+        }
+
+        public benefitvalue output(string scode)
+        {
+            for (int i = 0; i < noe; i++)
+                if (data[i].code == scode)
+                    return data[i];
+            return new benefitvalue();
+        }
+    }
+}
+
+/// <summary>
+/// NEED 2 BE DONE
+/// + create class (done)
+/// + need to make input function
+///     for database(done)
+///     for person (done)
+/// + output person function (done)
+/// + display person function (done)
+/// + search function
+/// + function to convert the code strings(done)
+/// + *clickable table
+/// + NETPAY calculation update needed
+/// + benefit/dental selection for Summit and Save button
+/// </summary>
