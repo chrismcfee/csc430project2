@@ -586,8 +586,13 @@ namespace WindowsFormsApplication1
                 searchtb1();
             
         }
-
+        
         private void label17_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label6_Click(object sender, EventArgs e)
         {
 
         }
@@ -658,7 +663,7 @@ namespace linkedlist
             if (ismaximized)
                 temp = temp + String.Format("{0,12:D}{1,13:D}{2,16:D}{3,7:D}{4,15:D}{5,15:D}{6,15:D}{7,15:D}{8,15:D}{9,15:D}{10,15:D}{11,15:D}{12,15:D}{13,8:D}{14,20:D}", "ID", "Last Name", "First Name", "State", "Benefit Brand", "Level", "Type", "Dental Brand", "Level", "Type", "Tax", "Gross Income", "Net Pay", "Check", "Account Number\n\n");
             else
-                temp = temp + String.Format("{0,12:D}{1,13:D}{2,16:D}{3,7:D}{4,15:D}{5,15:D}{6,15:D}{7,15:D}{8,8:D}{9,20:D}", "ID", "Last Name", "First Name", "State", "Benefit", "Tax", "Gross Income", "Net Pay", "Check", "Account Number\n\n");
+                temp = temp + String.Format("{0,12:D}{1,13:D}{2,16:D}{3,7:D}{4,15:D}{5,15:D}{6,15:D}{7,15:D}{8,8:D}{9,20:D}", "ID", "Last Name", "First Name", "State", "Health", "Tax", "Gross Income", "Net Pay", "Check", "Account Number\n\n");
             //temp = temp + String.Format("{0,12:D}{1,13:D}{2,16:D}{3,7:D}{4,15:D}{5,15:D}{6,15:D}{7,15:D}{8,10:D}{9,18:D}", "ID", "Last Name", "First Name", "State", "Benefit", "Tax", "Gross Income", "Net Pay", "Check", "Account Number\n\n");
             for (int i = 0; i < noe; i++)
             {

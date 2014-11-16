@@ -103,7 +103,7 @@
             this.richTextBox1.Location = new System.Drawing.Point(32, 97);
             this.richTextBox1.Name = "richTextBox1";
             this.richTextBox1.ReadOnly = true;
-            this.richTextBox1.Size = new System.Drawing.Size(1012, 341);
+            this.richTextBox1.Size = new System.Drawing.Size(1268, 341);
             this.richTextBox1.TabIndex = 0;
             this.richTextBox1.Text = "";
             this.richTextBox1.TextChanged += new System.EventHandler(this.richTextBox1_TextChanged);
@@ -191,11 +191,11 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(31, 531);
+            this.label3.Location = new System.Drawing.Point(15, 532);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(40, 13);
+            this.label3.Size = new System.Drawing.Size(74, 13);
             this.label3.TabIndex = 5;
-            this.label3.Text = "Benefit";
+            this.label3.Text = "Health Benefit";
             // 
             // label4
             // 
@@ -249,9 +249,9 @@
             this.label10.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label10.Location = new System.Drawing.Point(30, 451);
             this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(193, 13);
+            this.label10.Size = new System.Drawing.Size(70, 13);
             this.label10.TabIndex = 15;
-            this.label10.Text = "Enter people\'s information option";
+            this.label10.Text = "Information";
             // 
             // label11
             // 
@@ -266,7 +266,7 @@
             // modify
             // 
             this.modify.Enabled = false;
-            this.modify.Location = new System.Drawing.Point(843, 59);
+            this.modify.Location = new System.Drawing.Point(1106, 54);
             this.modify.Name = "modify";
             this.modify.Size = new System.Drawing.Size(75, 23);
             this.modify.TabIndex = 4;
@@ -279,7 +279,7 @@
             this.delete.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("delete.BackgroundImage")));
             this.delete.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.delete.Enabled = false;
-            this.delete.Location = new System.Drawing.Point(843, 27);
+            this.delete.Location = new System.Drawing.Point(1106, 27);
             this.delete.Name = "delete";
             this.delete.Size = new System.Drawing.Size(75, 23);
             this.delete.TabIndex = 50;
@@ -301,16 +301,17 @@
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(928, 32);
+            this.label6.Location = new System.Drawing.Point(1187, 27);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(113, 13);
             this.label6.TabIndex = 21;
             this.label6.Text = "Delete a person\'s data";
+            this.label6.Click += new System.EventHandler(this.label6_Click);
             // 
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(928, 64);
+            this.label7.Location = new System.Drawing.Point(1187, 59);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(113, 13);
             this.label7.TabIndex = 22;
@@ -499,7 +500,7 @@
             // button4
             // 
             this.button4.Enabled = false;
-            this.button4.Location = new System.Drawing.Point(724, 27);
+            this.button4.Location = new System.Drawing.Point(998, 23);
             this.button4.Name = "button4";
             this.button4.Size = new System.Drawing.Size(102, 55);
             this.button4.TabIndex = 3;
@@ -516,18 +517,20 @@
             this.button5.FlatAppearance.MouseDownBackColor = System.Drawing.SystemColors.ActiveCaption;
             this.button5.FlatAppearance.MouseOverBackColor = System.Drawing.SystemColors.ButtonFace;
             this.button5.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button5.Location = new System.Drawing.Point(467, 16);
+            this.button5.Location = new System.Drawing.Point(581, 22);
             this.button5.Margin = new System.Windows.Forms.Padding(2);
             this.button5.Name = "button5";
             this.button5.Size = new System.Drawing.Size(65, 62);
             this.button5.TabIndex = 36;
+            this.button5.Text = "About";
+            this.button5.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             this.button5.UseVisualStyleBackColor = true;
             this.button5.Click += new System.EventHandler(this.button5_Click);
             // 
             // label17
             // 
             this.label17.AutoSize = true;
-            this.label17.Location = new System.Drawing.Point(26, 558);
+            this.label17.Location = new System.Drawing.Point(22, 561);
             this.label17.Name = "label17";
             this.label17.Size = new System.Drawing.Size(62, 13);
             this.label17.TabIndex = 100;
@@ -545,7 +548,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1076, 591);
+            this.ClientSize = new System.Drawing.Size(1312, 578);
             this.Controls.Add(this.textBox8);
             this.Controls.Add(this.label17);
             this.Controls.Add(this.button5);
