@@ -49,5 +49,10 @@ namespace WindowsFormsApplication1
             bitmap.Save("tempimage.bmp");//save the image file
 
         }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
