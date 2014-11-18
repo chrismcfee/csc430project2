@@ -49,6 +49,12 @@
     <Compile Include="AboutWindow.Designer.cs">
       <DependentUpon>AboutWindow.cs</DependentUpon>
     </Compile>
+    <Compile Include="Checkform.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Checkform.Designer.cs">
+      <DependentUpon>Checkform.cs</DependentUpon>
+    </Compile>
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -83,6 +89,9 @@
     </Compile>
     <EmbeddedResource Include="AboutWindow.resx">
       <DependentUpon>AboutWindow.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Checkform.resx">
+      <DependentUpon>Checkform.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="CheckWindow.resx">
       <DependentUpon>CheckWindow.cs</DependentUpon>

@@ -28,6 +28,7 @@ namespace WindowsFormsApplication1
         benefitdata databenefit = new benefitdata(), datadental = new benefitdata();
         Form2 statetaxform, benefitform;
         CheckWindow checkform;
+        SetBenefitDentalWindow selectform;
         public Form1()
         {
             InitializeComponent();
@@ -45,6 +46,8 @@ namespace WindowsFormsApplication1
             textBox5.Anchor = AnchorStyles.Bottom;
             textBox6.Anchor = AnchorStyles.Bottom;
             textBox7.Anchor = AnchorStyles.Bottom;
+            textBox8.Anchor = AnchorStyles.Bottom;
+            button6.Anchor = AnchorStyles.Bottom;
             accountnumtb.Anchor = AnchorStyles.Bottom;
             comboBox2.Anchor = AnchorStyles.Bottom;
             routingnumtb.Anchor = AnchorStyles.Bottom;
@@ -58,6 +61,7 @@ namespace WindowsFormsApplication1
             label14.Anchor = AnchorStyles.Bottom;
             label15.Anchor = AnchorStyles.Bottom;
             label16.Anchor = AnchorStyles.Bottom;
+            label17.Anchor = AnchorStyles.Bottom;
             checkBox1.Anchor = AnchorStyles.Bottom;
             button1.Anchor = AnchorStyles.Bottom;
             button2.Anchor = AnchorStyles.Bottom;
@@ -69,10 +73,10 @@ namespace WindowsFormsApplication1
             modify.Anchor = AnchorStyles.Right | AnchorStyles.Top;
             delete.Anchor = AnchorStyles.Right | AnchorStyles.Top;
             button4.Anchor = AnchorStyles.Right | AnchorStyles.Top;
-
             data = new plist();
             MessageBox.Show("Please select the data files that you wish to use (*.txt). \nThe default values are the files listed in the program's directory.", "INFO");
             DialogResult result;
+            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
 
             //reading dental plan data
             try
@@ -197,7 +201,7 @@ namespace WindowsFormsApplication1
                 toolTip1.Show("Please enter information first.", button1, 110, 40);
             else
             {
-                string[] temp = new string[9];
+                string[] temp = new string[10];
                 //string line;
                 if (textBox2.Text == "")
                     textBox2.Text = "NA";
@@ -223,6 +227,7 @@ namespace WindowsFormsApplication1
                 else
                     temp[7] = comboBox2.Text;
                 temp[8] = accountnumtb.Text;
+                temp[9] = textBox8.Text;
                 data.input(temp, states, benefits,databenefit,datadental);
                 searchtb1();
                 cleartb();
@@ -308,9 +313,9 @@ namespace WindowsFormsApplication1
         {
             string index = "0000000000";
             int noe = data.getlastid(), count = 0;
-            while(noe > 1)
+            while(noe/10>1)
             {
-                noe = noe / 10;
+                noe = noe / 9;
                 count++;
             }
 
@@ -437,6 +442,7 @@ namespace WindowsFormsApplication1
             textBox5.Text = ntemp.data.tax.ToString();
             textBox6.Text = ntemp.data.gincome.ToString();
             comboBox2.Text = ntemp.data.state;
+            textBox8.Text = ntemp.data.dental;
             accountnumtb.Text = ntemp.data.accnum;
             if (ntemp.data.check == "NO")
                 checkBox1.Checked = false;
@@ -451,6 +457,7 @@ namespace WindowsFormsApplication1
             textBox5.Text = "";
             textBox6.Text = "";
             textBox7.Text = "";
+            textBox8.Text = "";
             comboBox2.Text = "";
             checkBox1.Checked = false;
             routingnumtb.Text = "";
@@ -467,6 +474,7 @@ namespace WindowsFormsApplication1
             ntemp.data.benefit = textBox4.Text.ToUpper();
             ntemp.data.tax = Convert.ToDouble(textBox5.Text);
             ntemp.data.gincome = Convert.ToDouble(textBox6.Text);
+            ntemp.data.dental = textBox8.Text;
             if (checkBox1.Checked == false)
                 ntemp.data.check = "NO";
             else ntemp.data.check = "YES";
@@ -547,8 +555,8 @@ namespace WindowsFormsApplication1
             if (checkform != null)
                 checkform.Close();
             checkform = new CheckWindow();
-            checkform.setpersondata(ntemp, states, benefits);
-            checkform.Show();
+            checkform.setpersondata(ntemp, states, databenefit, datadental);
+            checkform.ShowDialog();
         }
 
         private void accountnumtb_TextChanged(object sender, EventArgs e)
@@ -586,15 +594,19 @@ namespace WindowsFormsApplication1
                 searchtb1();
             
         }
-        
-        private void label17_Click(object sender, EventArgs e)
+
+        private void button6_Click(object sender, EventArgs e)
         {
-
-        }
-
-        private void label6_Click(object sender, EventArgs e)
-        {
-
+            if (selectform != null)
+                selectform.Close();
+            selectform = new SetBenefitDentalWindow();
+            selectform.inputdata(databenefit, datadental, textBox4.Text, textBox8.Text);
+            selectform.ShowDialog();
+            if(!selectform.iscancelled)
+            {
+                textBox8.Text = selectform.dentalcode;
+                textBox4.Text = selectform.benefitcode;
+            }
         }
 
 
@@ -661,9 +673,9 @@ namespace linkedlist
             if (isEmpty())
                 return "The list contains NOTHING!";
             if (ismaximized)
-                temp = temp + String.Format("{0,12:D}{1,13:D}{2,16:D}{3,7:D}{4,15:D}{5,15:D}{6,15:D}{7,15:D}{8,15:D}{9,15:D}{10,15:D}{11,15:D}{12,15:D}{13,8:D}{14,20:D}", "ID", "Last Name", "First Name", "State", "Benefit Brand", "Level", "Type", "Dental Brand", "Level", "Type", "Tax", "Gross Income", "Net Pay", "Check", "Account Number\n\n");
+                temp = temp + String.Format("{0,12:D}{1,13:D}{2,16:D}{3,7:D}{4,15:D}{5,10:D}{6,15:D}{7,15:D}{8,10:D}{9,15:D}{10,15:D}{11,15:D}{12,15:D}{13,8:D}{14,20:D}", "ID", "Last Name", "First Name", "State", "Benefit Brand", "Level", "Type", "Dental Brand", "Level", "Type", "Tax", "Gross Income", "Net Pay", "Check", "Account Number\n\n");
             else
-                temp = temp + String.Format("{0,12:D}{1,13:D}{2,16:D}{3,7:D}{4,15:D}{5,15:D}{6,15:D}{7,15:D}{8,8:D}{9,20:D}", "ID", "Last Name", "First Name", "State", "Health", "Tax", "Gross Income", "Net Pay", "Check", "Account Number\n\n");
+                temp = temp + String.Format("{0,12:D}{1,13:D}{2,16:D}{3,7:D}{4,15:D}{5,15:D}{6,15:D}{7,15:D}{8,8:D}{9,20:D}", "ID", "Last Name", "First Name", "State", "Benefit", "Tax", "Gross Income", "Net Pay", "Check", "Account Number\n\n");
             //temp = temp + String.Format("{0,12:D}{1,13:D}{2,16:D}{3,7:D}{4,15:D}{5,15:D}{6,15:D}{7,15:D}{8,10:D}{9,18:D}", "ID", "Last Name", "First Name", "State", "Benefit", "Tax", "Gross Income", "Net Pay", "Check", "Account Number\n\n");
             for (int i = 0; i < noe; i++)
             {
@@ -869,7 +881,7 @@ namespace linkedlist
                 temp = "!No result for your search.";
             else
                 if (ismaximized)
-                temp = String.Format("{0,12:D}{1,13:D}{2,16:D}{3,7:D}{4,15:D}{5,15:D}{6,15:D}{7,15:D}{8,15:D}{9,15:D}{10,15:D}{11,15:D}{12,15:D}{13,8:D}{14,20:D}", "ID", "Last Name", "First Name", "State", "Benefit Brand", "Level", "Type", "Dental Brand", "Level", "Type", "Tax", "Gross Income", "Net Pay", "Check", "Account Number\n\n") + temp;
+                temp = String.Format("{0,12:D}{1,13:D}{2,16:D}{3,7:D}{4,15:D}{5,10:D}{6,15:D}{7,15:D}{8,10:D}{9,15:D}{10,15:D}{11,15:D}{12,15:D}{13,8:D}{14,20:D}", "ID", "Last Name", "First Name", "State", "Benefit Brand", "Level", "Type", "Dental Brand", "Level", "Type", "Tax", "Gross Income", "Net Pay", "Check", "Account Number\n\n") + temp;
             else
                 temp = String.Format("{0,12:D}{1,13:D}{2,16:D}{3,7:D}{4,15:D}{5,15:D}{6,15:D}{7,15:D}{8,8:D}{9,20:D}", "ID", "Last Name", "First Name", "State", "Benefit", "Tax", "Gross Income", "Net Pay", "Check", "Account Number\n\n") + temp;
             return temp;
@@ -907,7 +919,7 @@ namespace pinfo
         public string id = "",lastname = "",firstname = "", benefit = "", check = "";
         public string state = "", accnum = "", dental = "";
         public double tax, gincome, npay, stax,btax;
-        benefitvalue benefitdetail = new benefitvalue(), dentaldetail = new benefitvalue();
+        public benefitvalue benefitdetail = new benefitvalue(), dentaldetail = new benefitvalue();
         public void input(string[] source, taxes[] states, taxes[] benefits, benefitdata benefitsource, benefitdata dentalsource)
         {
             id = source[0];
@@ -919,7 +931,7 @@ namespace pinfo
             check = source[6];
             state = source[7];
             accnum = source[8];
-            //dental = source[9];
+            dental = source[9];
             int i = 0;
             while (states[i] != null)
             {
@@ -934,10 +946,6 @@ namespace pinfo
             benefitdetail.copy(benefitsource.output(benefit));
             dentaldetail.copy(dentalsource.output(dental));
 
-            //new dental and benefit functions needed
-            
-
-
             //old benefit still here
             i = 0;
             while (benefits[i] != null)
@@ -951,7 +959,7 @@ namespace pinfo
             }
 
             //NETPAY calculation update needed
-            npay = (gincome - stax - tax) - (gincome*btax/100);
+            npay = (gincome - stax - tax - benefitdetail.value - dentaldetail.value);
         }
         public int getid()
         {
@@ -960,7 +968,7 @@ namespace pinfo
         public string getInfo(bool ismaximized)
         {
             if(ismaximized)
-                return (String.Format("{0,12:D}{1,13:D}{2,16:D}{3,7:D}{4,15:D}{5,15:D}{6,15:D}{7,15:D}{8,15:D}{9,15:D}{10,15:D}{11,15:D}{12,15:D}{13,8:D}{14,18:D}", id, lastname, firstname, state, benefitdetail.brand, benefitdetail.level, benefitdetail.type, dentaldetail.brand, dentaldetail.level, dentaldetail.type, tax.ToString(), gincome.ToString(), npay.ToString(), check, accnum));
+                return (String.Format("{0,12:D}{1,13:D}{2,16:D}{3,7:D}{4,15:D}{5,10:D}{6,15:D}{7,15:D}{8,10:D}{9,15:D}{10,15:D}{11,15:D}{12,15:D}{13,8:D}{14,18:D}", id, lastname, firstname, state, benefitdetail.brand, benefitdetail.level, benefitdetail.type, dentaldetail.brand, dentaldetail.level, dentaldetail.type, tax.ToString(), gincome.ToString(), npay.ToString(), check, accnum));
             else
                 return (String.Format("{0,12:D}{1,13:D}{2,16:D}{3,7:D}{4,15:D}{5,15:D}{6,15:D}{7,15:D}{8,8:D}{9,18:D}", id, lastname, firstname, state, benefit, tax.ToString(), gincome.ToString(), npay.ToString(), check, accnum));
         }
@@ -1002,7 +1010,6 @@ namespace benefitdatabase
             brand = source[1];
             type = source[2];
             level = source[3];
-            //dental = source[9];
             value = Convert.ToDouble(source[4]);
         }
 
@@ -1019,7 +1026,7 @@ namespace benefitdatabase
     public class benefitdata
     {
         public benefitvalue[] data = new benefitvalue[200];
-        private int noe = 0;
+        public int noe = 0;
 
         public string codeoutput(string sbrand, string stype, string slevel)
         {
@@ -1051,6 +1058,16 @@ namespace benefitdatabase
                     return data[i];
             return new benefitvalue();
         }
+
+        public void copydata(benefitdata source)
+        {
+            for (int i = 0; i < source.noe; i++)
+            {
+                data[i] = new benefitvalue();
+                data[i].copy(source.data[i]);
+                noe++;
+            }
+        }
     }
 }
 
@@ -1062,9 +1079,12 @@ namespace benefitdatabase
 ///     for person (done)
 /// + output person function (done)
 /// + display person function (done)
-/// + search function
+/// + search function (cancelled)
 /// + function to convert the code strings(done)
-/// + *clickable table
+/// + checkwindow update(done)
+/// + selection window(done
+/// + *clickable table (cancelled)
 /// + NETPAY calculation update needed
-/// + benefit/dental selection for Summit and Save button
+/// + Print check by imgae - working on Checkform.cs
+/// + benefit/dental selection for Summit and Save button(done)
 /// </summary>

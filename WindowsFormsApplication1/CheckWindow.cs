@@ -12,6 +12,7 @@ namespace WindowsFormsApplication1
     using linkedlist;
     using pinfo;
     using taxdata;
+    using benefitdatabase;
 
     public partial class CheckWindow : Form
     {
@@ -24,13 +25,13 @@ namespace WindowsFormsApplication1
 
         private void CheckWindow_Load(object sender, EventArgs e)
         {
-
+            richTextBox1.Anchor = AnchorStyles.Bottom | AnchorStyles.Top | AnchorStyles.Right | AnchorStyles.Left;
+            button1.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
         }
 
-        public void setpersondata(pnode source, taxes[] states, taxes[] benefits)
+        public void setpersondata(pnode source, taxes[] states, benefitdata databenefit, benefitdata datadental)
         {
             string stax = "";
-            string bene = "";
             string rtnum = "";
             int i = 0;
             data = data + "First Name:\t" + source.data.firstname + "\n";
@@ -47,20 +48,20 @@ namespace WindowsFormsApplication1
                 i++;
             }
             data = data + "State:\t\t" + source.data.state + "\n";
-            data = data + "State Tax:\t$ " + stax + "\n";
-            //data = data + "Local Tax:\t" + "N/A" + "\n";
-            data = data + "Benefit Type:\t" + source.data.benefit + "\n";
-            i = 0;
-            while (benefits[i] != null)
-            {
-                if (benefits[i].names == source.data.benefit)
-                {
-                    bene = benefits[i].value.ToString();
-                    break;
-                }
-                i++;
-            }
-            data = data + "Benefit:\t\t% " + bene + "\n";
+            data = data + "State Tax:\t$ " + stax + "\n\n";
+
+            data = data + "Benefit Code:\t" + source.data.benefit + "\n";
+            data = data + "Benefit Brand:\t " + source.data.benefitdetail.brand + "\n";
+            data = data + "Benefit Type:\t " + source.data.benefitdetail.type + "\n";
+            data = data + "Benefit Level:\t " + source.data.benefitdetail.level + "\n";
+            data = data + "Benefit Value:\t$ " + source.data.benefitdetail.value.ToString() + "\n\n";
+
+            data = data + "Dental Code:\t" + source.data.dental + "\n";
+            data = data + "Dental Brand:\t " + source.data.dentaldetail.brand + "\n";
+            data = data + "Dental Type:\t " + source.data.dentaldetail.type + "\n";
+            data = data + "Dental Level:\t " + source.data.dentaldetail.level + "\n";
+            data = data + "Dental Value:\t$ " + source.data.dentaldetail.value.ToString() + "\n\n";
+
             data = data + "Employee Tax:\t$ " + source.data.tax.ToString() +"\n";
             data = data + "Routing Number:\t" + rtnum + "\n";
             data = data + "Account Number:\t" + source.data.accnum + "\n";
@@ -74,6 +75,11 @@ namespace WindowsFormsApplication1
         private void button1_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void richTextBox1_TextChanged(object sender, EventArgs e)
+        {
+            
         }
 
         
