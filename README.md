@@ -1,15 +1,15 @@
 Greenchecks
 ==============
 
-Payroll Management Software
+A Payroll Management Software System
 
 Dependencies:
 
-Microsoft Windows
+-Microsoft Windows
 
-Visual Studio 2013
+-Visual Studio 2013
 
-Latest version of .NET installed
+-Latest version of .NET installed
 
 
 _______________________________________________________________________
