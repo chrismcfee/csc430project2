@@ -51,6 +51,7 @@
             this.label1.Size = new System.Drawing.Size(82, 22);
             this.label1.TabIndex = 0;
             this.label1.Text = "Group 5";
+            this.label1.Click += new System.EventHandler(this.label1_Click);
             // 
             // label2
             // 
@@ -120,32 +121,35 @@
             this.label8.Image = ((System.Drawing.Image)(resources.GetObject("label8.Image")));
             this.label8.Location = new System.Drawing.Point(22, 240);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(240, 13);
+            this.label8.Size = new System.Drawing.Size(214, 13);
             this.label8.TabIndex = 7;
-            this.label8.Text = "Copyright © by Group 5 - CSC430 Fall 2014 Class";
+            this.label8.Text = "Copyleft - Group 5 - CSC430 Fall 2014 Class";
+            this.label8.Click += new System.EventHandler(this.label8_Click);
             // 
             // button1
             // 
+            this.button1.BackColor = System.Drawing.SystemColors.InactiveCaptionText;
             this.button1.Image = ((System.Drawing.Image)(resources.GetObject("button1.Image")));
             this.button1.Location = new System.Drawing.Point(92, 188);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(92, 35);
             this.button1.TabIndex = 8;
             this.button1.Text = "OK";
-            this.button1.UseVisualStyleBackColor = true;
+            this.button1.UseVisualStyleBackColor = false;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // button2
             // 
+            this.button2.BackColor = System.Drawing.Color.Transparent;
             this.button2.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("button2.BackgroundImage")));
             this.button2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.button2.FlatAppearance.BorderSize = 0;
             this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button2.Location = new System.Drawing.Point(206, 12);
+            this.button2.Location = new System.Drawing.Point(206, 33);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(51, 49);
             this.button2.TabIndex = 8;
-            this.button2.UseVisualStyleBackColor = true;
+            this.button2.UseVisualStyleBackColor = false;
             // 
             // AboutWindow
             // 
