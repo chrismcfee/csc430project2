@@ -480,6 +480,8 @@ namespace WindowsFormsApplication1
             else ntemp.data.check = "YES";
             ntemp.data.state = comboBox2.Text;
             ntemp.data.accnum = accountnumtb.Text;
+            ntemp.data.benefitdetail.copy(databenefit.output(ntemp.data.benefit));
+            ntemp.data.dentaldetail.copy(databenefit.output(ntemp.data.dental));
             textBox1.Text = "";
             cleartb();
             changed = true;   
@@ -672,10 +674,10 @@ namespace linkedlist
             pnode tempnode = head;
             if (isEmpty())
                 return "The list contains NOTHING!";
-            if (ismaximized)
+            /*if (ismaximized)
                 temp = temp + String.Format("{0,12:D}{1,13:D}{2,16:D}{3,7:D}{4,15:D}{5,10:D}{6,15:D}{7,15:D}{8,10:D}{9,15:D}{10,15:D}{11,15:D}{12,15:D}{13,8:D}{14,20:D}", "ID", "Last Name", "First Name", "State", "Benefit Brand", "Level", "Type", "Dental Brand", "Level", "Type", "Tax", "Gross Income", "Net Pay", "Check", "Account Number\n\n");
-            else
-                temp = temp + String.Format("{0,12:D}{1,13:D}{2,16:D}{3,7:D}{4,15:D}{5,15:D}{6,15:D}{7,15:D}{8,8:D}{9,20:D}", "ID", "Last Name", "First Name", "State", "Benefit", "Tax", "Gross Income", "Net Pay", "Check", "Account Number\n\n");
+            else*/
+            temp = temp + String.Format("{0,12:D}{1,13:D}{2,16:D}{3,7:D}{4,15:D}{5,15:D}{6,15:D}{7,15:D}{8,15:D}{9,8:D}{10,20:D}", "ID", "Last Name", "First Name", "State", "Benefit","Dental", "Tax", "Gross Income", "Net Pay", "Check", "Account Number\n\n");
             //temp = temp + String.Format("{0,12:D}{1,13:D}{2,16:D}{3,7:D}{4,15:D}{5,15:D}{6,15:D}{7,15:D}{8,10:D}{9,18:D}", "ID", "Last Name", "First Name", "State", "Benefit", "Tax", "Gross Income", "Net Pay", "Check", "Account Number\n\n");
             for (int i = 0; i < noe; i++)
             {
@@ -879,11 +881,11 @@ namespace linkedlist
             }
             if (temp == "")
                 temp = "!No result for your search.";
-            else
+            /*else
                 if (ismaximized)
                 temp = String.Format("{0,12:D}{1,13:D}{2,16:D}{3,7:D}{4,15:D}{5,10:D}{6,15:D}{7,15:D}{8,10:D}{9,15:D}{10,15:D}{11,15:D}{12,15:D}{13,8:D}{14,20:D}", "ID", "Last Name", "First Name", "State", "Benefit Brand", "Level", "Type", "Dental Brand", "Level", "Type", "Tax", "Gross Income", "Net Pay", "Check", "Account Number\n\n") + temp;
-            else
-                temp = String.Format("{0,12:D}{1,13:D}{2,16:D}{3,7:D}{4,15:D}{5,15:D}{6,15:D}{7,15:D}{8,8:D}{9,20:D}", "ID", "Last Name", "First Name", "State", "Benefit", "Tax", "Gross Income", "Net Pay", "Check", "Account Number\n\n") + temp;
+            else*/
+            temp = String.Format("{0,12:D}{1,13:D}{2,16:D}{3,7:D}{4,15:D}{5,15:D}{6,15:D}{7,15:D}{8,15:D}{9,8:D}{10,20:D}", "ID", "Last Name", "First Name", "State", "Benefit","Dental", "Tax", "Gross Income", "Net Pay", "Check", "Account Number\n\n") + temp;
             return temp;
         }
 
@@ -917,7 +919,7 @@ namespace pinfo
     {
         //private static date dob = new date();
         public string id = "",lastname = "",firstname = "", benefit = "", check = "";
-        public string state = "", accnum = "", dental = "";
+        public string state = "", accnum = "", dental = "", routingnum = "";
         public double tax, gincome, npay, stax,btax;
         public benefitvalue benefitdetail = new benefitvalue(), dentaldetail = new benefitvalue();
         public void input(string[] source, taxes[] states, taxes[] benefits, benefitdata benefitsource, benefitdata dentalsource)
@@ -938,6 +940,7 @@ namespace pinfo
                 if (states[i].names == state)
                 {
                     stax = states[i].value;
+                    routingnum = states[i].routingnum;
                     break;
                 }
                 i++;
@@ -967,16 +970,35 @@ namespace pinfo
         }
         public string getInfo(bool ismaximized)
         {
-            if(ismaximized)
+            /*if(ismaximized)
                 return (String.Format("{0,12:D}{1,13:D}{2,16:D}{3,7:D}{4,15:D}{5,10:D}{6,15:D}{7,15:D}{8,10:D}{9,15:D}{10,15:D}{11,15:D}{12,15:D}{13,8:D}{14,18:D}", id, lastname, firstname, state, benefitdetail.brand, benefitdetail.level, benefitdetail.type, dentaldetail.brand, dentaldetail.level, dentaldetail.type, tax.ToString(), gincome.ToString(), npay.ToString(), check, accnum));
-            else
-                return (String.Format("{0,12:D}{1,13:D}{2,16:D}{3,7:D}{4,15:D}{5,15:D}{6,15:D}{7,15:D}{8,8:D}{9,18:D}", id, lastname, firstname, state, benefit, tax.ToString(), gincome.ToString(), npay.ToString(), check, accnum));
+            else*/
+            return (String.Format("{0,12:D}{1,13:D}{2,16:D}{3,7:D}{4,15:D}{5,15:D}{6,15:D}{7,15:D}{8,15:D}{9,8:D}{10,20:D}", id, lastname, firstname, state, benefit,dental, tax.ToString(), gincome.ToString(), npay.ToString(), check, accnum));
         }
 
         public string output()
         {
             return id + "\t" + lastname + "\t" + firstname + "\t" + benefit + "\t" + tax.ToString() + "\t" + gincome.ToString() + "\t" + check + "\t" + state + "\t" + accnum + "\t" + dental;
         }
+
+        public void copy(person source)
+        {
+            id = source.id;
+            lastname = source.lastname;
+            firstname = source.firstname;
+            benefit = source.benefit;
+            tax = source.tax;
+            gincome = source.gincome;
+            check = source.check;
+            state = source.state;
+            accnum = source.accnum;
+            dental = source.dental;
+            stax = source.stax;
+            btax = source.btax;
+            npay = source.npay;
+            benefitdetail.copy(source.benefitdetail);
+            dentaldetail.copy(source.dentaldetail);
+        } 
     }
 }
 

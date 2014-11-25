@@ -22,15 +22,19 @@ namespace WindowsFormsApplication1
         }
 
         private string data = "";
+        private Checkform form = new Checkform();
+        public person pdata;
 
         private void CheckWindow_Load(object sender, EventArgs e)
         {
             richTextBox1.Anchor = AnchorStyles.Bottom | AnchorStyles.Top | AnchorStyles.Right | AnchorStyles.Left;
             button1.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
+           
         }
 
         public void setpersondata(pnode source, taxes[] states, benefitdata databenefit, benefitdata datadental)
         {
+                     
             string stax = "";
             string rtnum = "";
             int i = 0;
@@ -70,6 +74,18 @@ namespace WindowsFormsApplication1
             richTextBox1.Enabled = false;
             label1.Text = source.data.firstname + " " + source.data.lastname + "'s Information:";
             this.Text = source.data.firstname + " " + source.data.lastname;
+
+
+            pdata = new person();
+            pdata = source.data;
+            if (pdata.check == "YES")
+            {
+                button2.Enabled = true;
+                form.indata(pdata);
+                form.rtnum = rtnum;
+            }
+            else
+                button2.Enabled = false;
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -80,6 +96,11 @@ namespace WindowsFormsApplication1
         private void richTextBox1_TextChanged(object sender, EventArgs e)
         {
             
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            form.ShowDialog();
         }
 
         

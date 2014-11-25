@@ -104,7 +104,7 @@
             this.richTextBox1.Location = new System.Drawing.Point(32, 97);
             this.richTextBox1.Name = "richTextBox1";
             this.richTextBox1.ReadOnly = true;
-            this.richTextBox1.Size = new System.Drawing.Size(1029, 341);
+            this.richTextBox1.Size = new System.Drawing.Size(1085, 341);
             this.richTextBox1.TabIndex = 0;
             this.richTextBox1.Text = "";
             this.richTextBox1.TextChanged += new System.EventHandler(this.richTextBox1_TextChanged);
@@ -252,9 +252,9 @@
             this.label10.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label10.Location = new System.Drawing.Point(30, 451);
             this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(70, 13);
+            this.label10.Size = new System.Drawing.Size(193, 13);
             this.label10.TabIndex = 15;
-            this.label10.Text = "Information";
+            this.label10.Text = "Enter people\'s information option";
             // 
             // label11
             // 
@@ -269,7 +269,7 @@
             // modify
             // 
             this.modify.Enabled = false;
-            this.modify.Location = new System.Drawing.Point(858, 60);
+            this.modify.Location = new System.Drawing.Point(884, 54);
             this.modify.Name = "modify";
             this.modify.Size = new System.Drawing.Size(75, 23);
             this.modify.TabIndex = 4;
@@ -282,7 +282,7 @@
             this.delete.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("delete.BackgroundImage")));
             this.delete.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.delete.Enabled = false;
-            this.delete.Location = new System.Drawing.Point(858, 28);
+            this.delete.Location = new System.Drawing.Point(884, 22);
             this.delete.Name = "delete";
             this.delete.Size = new System.Drawing.Size(75, 23);
             this.delete.TabIndex = 50;
@@ -304,7 +304,7 @@
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(943, 33);
+            this.label6.Location = new System.Drawing.Point(969, 27);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(113, 13);
             this.label6.TabIndex = 21;
@@ -313,7 +313,7 @@
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(943, 65);
+            this.label7.Location = new System.Drawing.Point(969, 59);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(113, 13);
             this.label7.TabIndex = 22;
@@ -503,7 +503,7 @@
             // button4
             // 
             this.button4.Enabled = false;
-            this.button4.Location = new System.Drawing.Point(739, 28);
+            this.button4.Location = new System.Drawing.Point(765, 22);
             this.button4.Name = "button4";
             this.button4.Size = new System.Drawing.Size(102, 55);
             this.button4.TabIndex = 3;
@@ -514,19 +514,17 @@
             // button5
             // 
             this.button5.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("button5.BackgroundImage")));
-            this.button5.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.button5.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.button5.FlatAppearance.BorderColor = System.Drawing.SystemColors.ActiveCaption;
             this.button5.FlatAppearance.BorderSize = 0;
             this.button5.FlatAppearance.MouseDownBackColor = System.Drawing.SystemColors.ActiveCaption;
             this.button5.FlatAppearance.MouseOverBackColor = System.Drawing.SystemColors.ButtonFace;
             this.button5.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button5.Location = new System.Drawing.Point(467, 16);
+            this.button5.Location = new System.Drawing.Point(343, 18);
             this.button5.Margin = new System.Windows.Forms.Padding(2);
             this.button5.Name = "button5";
             this.button5.Size = new System.Drawing.Size(65, 62);
             this.button5.TabIndex = 36;
-            this.button5.Text = "About";
-            this.button5.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.button5.UseVisualStyleBackColor = true;
             this.button5.Click += new System.EventHandler(this.button5_Click);
             // 
@@ -563,7 +561,8 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1088, 596);
+            this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
+            this.ClientSize = new System.Drawing.Size(1149, 596);
             this.Controls.Add(this.label17);
             this.Controls.Add(this.textBox8);
             this.Controls.Add(this.button6);
