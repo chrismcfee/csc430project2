@@ -76,7 +76,7 @@ namespace WindowsFormsApplication1
             data = new plist();
             MessageBox.Show("Please select the data files that you wish to use (*.txt). \nThe default values are the files listed in the program's directory.", "INFO");
             DialogResult result;
-            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
+            //this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
 
             //reading dental plan data
             try
@@ -303,8 +303,8 @@ namespace WindowsFormsApplication1
                     break;
                 }
                 i++;
-            }
-            double netpay = (gincome - stax - tax) - (gincome * btax/100);
+            } 
+            double netpay = (gincome - stax - tax - databenefit.valueoutput(textBox4.Text) - datadental.valueoutput(textBox8.Text));
             textBox7.Text = netpay.ToString();
             routingnumtb.Text = rtnum;
         }
@@ -312,13 +312,13 @@ namespace WindowsFormsApplication1
         string idgen()
         {
             string index = "0000000000";
-            int noe = data.getlastid(), count = 0;
-            while(noe/10>1)
+            int noe = data.getlastid()+1, count = 1;
+            while(noe>=10)
             {
-                noe = noe / 9;
+                noe = noe / 10;
                 count++;
             }
-
+            MessageBox.Show(count.ToString());
             index = index.Substring(0, index.Length - count);
             count = data.getlastid();
             count++;
@@ -482,6 +482,7 @@ namespace WindowsFormsApplication1
             ntemp.data.accnum = accountnumtb.Text;
             ntemp.data.benefitdetail.copy(databenefit.output(ntemp.data.benefit));
             ntemp.data.dentaldetail.copy(databenefit.output(ntemp.data.dental));
+            ntemp.data.netpayupdate();
             textBox1.Text = "";
             cleartb();
             changed = true;   
@@ -962,8 +963,14 @@ namespace pinfo
             }
 
             //NETPAY calculation update needed
+            netpayupdate();
+        }
+
+        public void netpayupdate()
+        {
             npay = (gincome - stax - tax - benefitdetail.value - dentaldetail.value);
         }
+
         public int getid()
         {
             return Convert.ToInt32(id);
@@ -1106,7 +1113,7 @@ namespace benefitdatabase
 /// + checkwindow update(done)
 /// + selection window(done
 /// + *clickable table (cancelled)
-/// + NETPAY calculation update needed
-/// + Print check by imgae - working on Checkform.cs
+/// + NETPAY calculation update needed (done)
+/// + Print check by imgae - working on Checkform.cs (done)
 /// + benefit/dental selection for Summit and Save button(done)
 /// </summary>
