@@ -10,6 +10,8 @@ using System.Drawing.Imaging;
 using System.Drawing.Drawing2D;
 using System.Drawing.Text;
 
+//the check window when print is selected
+
 namespace WindowsFormsApplication1
 {
     using benefitdatabase;

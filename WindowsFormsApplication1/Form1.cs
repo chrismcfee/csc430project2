@@ -8,7 +8,8 @@ using System.Text;
 using System.Windows.Forms;
 using System.IO;
 
-//main form
+//Form1.cs
+//main form - most of what the program does is in this file
 
 namespace WindowsFormsApplication1
 {
@@ -143,6 +144,7 @@ namespace WindowsFormsApplication1
             }
 
             //reading benefit(old)
+            //this is deprecated and no longer used
             try
             {
                 input = new FileStream(@System.IO.Directory.GetCurrentDirectory() + @"\taxdata\benefit.DAT", FileMode.Open, FileAccess.Read);
@@ -197,6 +199,8 @@ namespace WindowsFormsApplication1
 
         }
 
+        //submit function
+
         private void button1_Click(object sender, EventArgs e)
         {
             if (textBox2.Text == "" && textBox3.Text == "" && textBox4.Text == "" && textBox5.Text == "" && textBox6.Text == "")
@@ -237,6 +241,8 @@ namespace WindowsFormsApplication1
             }
         }
 
+
+        //search function
         void searchtb1()
         {
             if (textBox1.Text == "")
@@ -253,6 +259,8 @@ namespace WindowsFormsApplication1
             }
         }
 
+
+        //modify function
         void modifycheck(int index)
         {
             if (index == 4)
@@ -272,6 +280,7 @@ namespace WindowsFormsApplication1
             }
         }
 
+        //display total netpay
         void netpaydisplay()
         {
             double gincome, tax, stax, btax;
@@ -333,6 +342,8 @@ namespace WindowsFormsApplication1
             searchtb1();
         }
 
+
+        //form data type list
         private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
             textBox1.MaxLength = 15;
@@ -466,6 +477,8 @@ namespace WindowsFormsApplication1
             accountnumtb.Text = "";
         }
 
+
+        //submit func
         private void save_Click(object sender, EventArgs e)
         {
             button1.Enabled = true;
@@ -1054,6 +1067,8 @@ namespace benefitdatabase
         }
     }
 
+
+    //benefit data
     public class benefitdata
     {
         public benefitvalue[] data = new benefitvalue[200];
