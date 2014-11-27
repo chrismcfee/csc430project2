@@ -8,6 +8,8 @@ using System.Text;
 using System.Windows.Forms;
 using System.IO;
 
+//main form
+
 namespace WindowsFormsApplication1
 {
     using pinfo;

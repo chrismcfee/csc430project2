@@ -7,6 +7,8 @@ using System.Linq;
 using System.Text;
 using System.Windows.Forms;
 
+//displays a check window
+
 namespace WindowsFormsApplication1
 {
     using linkedlist;
