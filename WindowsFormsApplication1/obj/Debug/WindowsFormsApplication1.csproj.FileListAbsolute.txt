@@ -126,3 +126,5 @@ C:\Users\CharleneX\Documents\GitHub\csc430project2\WindowsFormsApplication1\obj\
 C:\Users\CharleneX\Documents\GitHub\csc430project2\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.Properties.Resources.resources
 C:\Users\CharleneX\Documents\GitHub\csc430project2\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.SetBenefitDentalWindow.resources
 C:\Users\CharleneX\Documents\GitHub\csc430project2\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.csproj.GenerateResource.Cache
+C:\Users\Dan\Documents\GitHub\csc430project2\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.exe
+C:\Users\Dan\Documents\GitHub\csc430project2\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.pdb
