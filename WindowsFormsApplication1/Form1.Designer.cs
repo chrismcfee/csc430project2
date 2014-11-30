@@ -539,10 +539,10 @@
             this.button5.FlatAppearance.MouseDownBackColor = System.Drawing.SystemColors.ActiveCaption;
             this.button5.FlatAppearance.MouseOverBackColor = System.Drawing.SystemColors.ButtonFace;
             this.button5.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button5.Location = new System.Drawing.Point(343, 18);
+            this.button5.Location = new System.Drawing.Point(518, 11);
             this.button5.Margin = new System.Windows.Forms.Padding(2);
             this.button5.Name = "button5";
-            this.button5.Size = new System.Drawing.Size(65, 62);
+            this.button5.Size = new System.Drawing.Size(69, 76);
             this.button5.TabIndex = 36;
             this.button5.Text = "About";
             this.button5.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
