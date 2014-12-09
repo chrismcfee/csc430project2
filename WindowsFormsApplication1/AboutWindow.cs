@@ -11,7 +11,7 @@ namespace WindowsFormsApplication1
 {
     public partial class AboutWindow : Form
     {
-        public AboutWindow()
+        public AboutWindow()//hhh
         {
             InitializeComponent();
         }
